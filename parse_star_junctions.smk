@@ -15,12 +15,16 @@ bam_dir = os.path.join(project_dir,bam_spot)
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
 print(SAMPLES)
 
+rule all_output:
+    input:
+        expand(output_dir + "{sample}.bed", sample = SAMPLES)
+
 
 rule sj_to_bed:
     input:
         bam_dir + "{sample}.SJ.out.tab"
     output:
-        out_spot + "{sample}.bed"
+        output_dir + "{sample}.bed"
     shell:
         """
         python3 splicejunction2bed.py --input {input} --output {output}
