@@ -69,5 +69,5 @@ rule clean_aggregate:
         output_dir + "aggregated.clean.bed"
     shell:
         """
-        awk -F'\t' 'NR==FNR{a[$2];next} $2 in a' {bed_file} {input}  |  awk -F'\t' 'NR==FNR{a[$3];next} $3 in a' {bed_file} - > {output}
+        awk -F"\t" 'NR==FNR{a[\$2];next} \$2 in a' {bed_file} {input}  |  awk -F'\t' 'NR==FNR{a[\$3];next} \$3 in a' {bed_file} - > {output}
         """
