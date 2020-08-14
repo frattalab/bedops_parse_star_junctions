@@ -24,38 +24,26 @@
 # chr1	12227	12611	chr1:12228-12612|1	0	+
 # chr1	14829	14968	chr1:14830-14969|1	75	-
 
-import getopt, sys, os.path
+import argparse, sys, os.path
 from pathlib import Path
 
 
 def main():
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "hi:o:m:n:", ["help", "input=","output=","motifFilter=","name="])
-    except getopt.GetoptError as err:
-        print(err) # will print something like "option -a not recognized"
-        usage()
-        sys.exit(2)
-    infile = None
-    outfile = None
-    motifON = False
-    nameBase = False
+    parser = argparse.ArgumentParser()
+    parser.parse_args()
+    parser.add_argument("input", help="File with the regions in bed format")
+    parser.add_argument("output", help="Name of the output bed you want")
+    parser.add_argument("motifFilter", help=" filter out splice junctions with \n\t\t non-canonical motifs",action="store_true")
+    parser.add_argument("name", help="File with the regions in bed format",action="store_true")
 
-    for opt, arg in opts:
-        if opt in ("-h","--help"):
-            usage()
-            sys.exit()
-        elif opt in ("-i", "--input"):
-            if os.path.isfile(arg):
-                infile = arg
-        elif opt in ("-o", "--output"):
-            outfile = arg
-        elif opt in ("-m", "--motifFilter"):
-            motifON = True
-        elif opt in ("-n", "--name"):
-            nameBase = True
-        else:
-            print(opt)
-            assert False, "Unhandled option"
+
+    args = parser.parse_args()
+
+    infile = args.input
+    outfile = args.output
+    motifON = args.motifFilter
+    nameBase = args.name
+
 
     if infile is not None and outfile is not None:
         run(infile, outfile, motifON,nameBase)
