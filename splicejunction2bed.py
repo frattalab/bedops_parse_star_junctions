@@ -31,10 +31,10 @@ from pathlib import Path
 def main():
     parser = argparse.ArgumentParser()
     parser.parse_args()
-    parser.add_argument("input", help="File with the regions in bed format")
-    parser.add_argument("output", help="Name of the output bed you want")
-    parser.add_argument("motifFilter", help=" filter out splice junctions with \n\t\t non-canonical motifs",action="store_true")
-    parser.add_argument("name", help="File with the regions in bed format",action="store_true")
+    parser.add_argument("-i","--input", help="File with the regions in bed format")
+    parser.add_argument("-o","--output", help="Name of the output bed you want")
+    parser.add_argument("-m","--motifFilter", help=" filter out splice junctions with \n\t\t non-canonical motifs",action="store_true")
+    parser.add_argument("-n","--name", help="File with the regions in bed format",action="store_true")
 
 
     args = parser.parse_args()
