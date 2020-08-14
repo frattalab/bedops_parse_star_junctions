@@ -39,7 +39,7 @@ rule sort_beds:
         output_dir + "{sample}.sorted.bed"
     shell:
         """
-        {bedops_path} sort-bed {input} > {output}
+        {bedops_path}sort-bed {input} > {output}
         """
 #
 
