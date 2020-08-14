@@ -5,7 +5,7 @@ out_spot = "splicejunctions/"
 bam_spot = "STAR_aligned/"
 bam_suffix = ".Aligned.sorted.out.bam"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_cryptics.bed"
-
+bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 
 output_dir = os.path.join(project_dir,out_spot)
@@ -17,7 +17,8 @@ print(SAMPLES)
 
 rule all_output:
     input:
-        expand(output_dir + "{sample}.bed", sample = SAMPLES)
+        expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES)
+
 
 
 rule sj_to_bed:
@@ -31,8 +32,16 @@ rule sj_to_bed:
         """
 
 
-# rule_sort_beds
+rule_sort_beds:
+    input:
+        output_dir + "{sample}.bed"
+    output:
+        output_dir + "{sample}.sorted.bed"
+    shell:
+        """
+        {bedops_path} sort-bed {input} > {output}
+        """
 #
-# rule_rename_bed
+
 #
 # rule_call_element:
