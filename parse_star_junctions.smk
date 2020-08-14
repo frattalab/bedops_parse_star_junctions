@@ -61,5 +61,13 @@ rule aggregate:
     shell:
         """
         cat {input} > {output}
-        awk -F'\t' 'NR==FNR{a[$2];next} $2 in a' {bed_file} aggregated.bed  |  awk -F'\t' 'NR==FNR{a[$3];next} $3 in a' {bed_file} - > {output}
+        """
+rule clean_aggregate:
+    input:
+        output_dir + "aggregated.bed"
+    output:
+        output_dir + "aggregated.clean.bed"
+    shell:
+        """
+        awk -F'\t' 'NR==FNR{a[$2];next} $2 in a' {bed_file} {input}  |  awk -F'\t' 'NR==FNR{a[$3];next} $3 in a' {bed_file} - > {output}
         """
