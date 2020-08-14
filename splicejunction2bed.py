@@ -25,11 +25,12 @@
 # chr1	14829	14968	chr1:14830-14969|1	75	-
 
 import getopt, sys, os.path
+from pathlib import Path
 
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hi:o:m:", ["help", "input=","output=","motifFilter="])
+        opts, args = getopt.getopt(sys.argv[1:], "hi:o:m:n:", ["help", "input=","output=","motifFilter=","name="])
     except getopt.GetoptError as err:
         print(err) # will print something like "option -a not recognized"
         usage()
@@ -37,6 +38,7 @@ def main():
     infile = None
     outfile = None
     motifON = False
+    nameBase = False
 
     for opt, arg in opts:
         if opt in ("-h","--help"):
@@ -49,6 +51,8 @@ def main():
             outfile = arg
         elif opt in ("-m", "--motifFilter"):
             motifON = True
+        elif opt in ("-n", "--name"):
+            nameBase = True
         else:
             print(opt)
             assert False, "Unhandled option"
@@ -65,6 +69,8 @@ def usage():
     print("Options:")
     print("\t-h, --help:\n\t\t show this help message and exit")
     print("\t-mf, --motifFilter:\n\t\t filter out splice junctions with \n\t\t non-canonical motifs")
+    print("\t-n, --name:\n\t\t change name column to the name of the file")
+
     print("Mandatory:")
     print("\t-i, --input:\n\t\t File with the regions in bed format")
     print("\t-o, --output:\n\t\t Name of the gtf file output file. Directory where the file will be created should exist!")
@@ -74,7 +80,8 @@ def run(infile, outfile, motifON):
 
     inf  = open(infile, 'r')
     outf = open(outfile,'w')
-
+    if(nameBase):
+        baseFileName = Path(infile).stem
     for line in inf:
         linea_split = line.split()
 
@@ -97,11 +104,15 @@ def run(infile, outfile, motifON):
             elif(strand == "0"):
                 strand = "*"
 
-            # name here will be the original coords separated by underscore
-            name = str(linea_split[0]) + ":" + str(linea_split[1]) + "-" + str(linea_split[2])
+            if(!nameBase):
+                # name here will be the original coords separated by underscore
+                name = str(linea_split[0]) + ":" + str(linea_split[1]) + "-" + str(linea_split[2])
+                # and then : and the annotation
+                name = name + "|" + str(linea_split[5])
+            else:
+                name = baseFileName
 
-            # and then : and the annotation
-            name = name + "|" + str(linea_split[5])
+
             # score is the number of uniquemappers
             score = str(linea_split[6])
             # chr1	11671	12008	chr1_11672_12009:1	0	+
