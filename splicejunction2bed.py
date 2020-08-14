@@ -54,13 +54,16 @@ def run(infile, outfile, motifON, nameBase):
 
     inf  = open(infile, 'r')
     outf = open(outfile,'w')
+
     if nameBase:
         baseFileName = Path(infile).stem
-        print(baseFileName)
-    for line in inf:
-        linea_split = line.split()
 
+    for line in inf:
+
+        split_line = line.split()
+        print(split_line)
         chrom = linea_split[0]
+        print(chrom)
         # if the intromotif filter is on
         # column 5:  intron  motif:  0:  non-canonical;  1:  GT/AG,  2:  CT/AC,  3:  GC/AG,  4:  CT/GC,  5:AT/AC, 6:  GT/AT
 
