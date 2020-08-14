@@ -32,7 +32,7 @@ rule sj_to_bed:
         """
 
 
-rule_sort_beds:
+rule sort_beds:
     input:
         output_dir + "{sample}.bed"
     output:
