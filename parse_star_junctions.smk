@@ -18,7 +18,7 @@ print(SAMPLES)
 rule all_output:
     input:
         expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
-        output_dir + "aggregated.clean.bed"
+        output_dir + "aggregated.clean.annotated.bed"
 
 
 
@@ -70,4 +70,13 @@ rule clean_aggregate:
     shell:
         """
         bedtools intersect -f 1 -wa -r -a {input} -b {bed_file} > {output}
+        """
+rule annotate_clean:
+    input:
+        output_dir + "aggregated.clean.bed"
+    output:
+        output_dir + "aggregated.clean.annotated.bed"
+    shell:
+        """
+        bedtools intersect -f 1 -r -a {input} -b {bed_file} -wb | awk -v OFS="\t" '{print $1,$2,$3,$4,$5,$6,$10}' > {output}
         """
