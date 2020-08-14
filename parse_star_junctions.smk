@@ -50,7 +50,7 @@ rule call_element:
         temp(output_dir + "{sample}.bedops.element")
     shell:
         """
-        {bedops_path}bedops --element-of 1 {input} {bed_file} --exact
+        {bedops_path}bedops --element-of 1 {input} {bed_file} 
         """
 # an aggregation over all produced clusters
 rule aggregate:
