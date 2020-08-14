@@ -18,7 +18,7 @@ print(SAMPLES)
 rule all_output:
     input:
         expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
-        output_dir + "aggregated.bed"
+        output_dir + "aggregated.clean.bed"
 
 
 
