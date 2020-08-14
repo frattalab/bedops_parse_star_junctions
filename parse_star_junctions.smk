@@ -62,4 +62,4 @@ rule aggregate:
         """
         cat {input} > {output}
         awk -F'\t' 'NR==FNR{a[$2];next} $2 in a' {bed_file} aggregated.bed  |  awk -F'\t' 'NR==FNR{a[$3];next} $3 in a' {bed_file} - > {output}
-        """"
+        """
