@@ -30,7 +30,7 @@ from pathlib import Path
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hi:o:m:n:", ["help", "input=","output=","motifFilter=","name="])
+        opts, args = getopt.getopt(sys.argv[1:], "hi:o:m:n", ["help", "input=","output=","motifFilter=","name="])
     except getopt.GetoptError as err:
         print(err) # will print something like "option -a not recognized"
         usage()
@@ -58,7 +58,7 @@ def main():
             assert False, "Unhandled option"
 
     if infile is not None and outfile is not None:
-        run(infile, outfile, motifON)
+        run(infile, outfile, motifON,nameBase)
     else:
         usage()
 
@@ -76,7 +76,7 @@ def usage():
     print("\t-o, --output:\n\t\t Name of the gtf file output file. Directory where the file will be created should exist!")
 
 
-def run(infile, outfile, motifON):
+def run(infile, outfile, motifON, nameBase):
 
     inf  = open(infile, 'r')
     outf = open(outfile,'w')
