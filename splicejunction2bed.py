@@ -80,8 +80,9 @@ def run(infile, outfile, motifON):
 
     inf  = open(infile, 'r')
     outf = open(outfile,'w')
-    if(nameBase):
+    if nameBase:
         baseFileName = Path(infile).stem
+        print(baseFileName)
     for line in inf:
         linea_split = line.split()
 
@@ -104,7 +105,7 @@ def run(infile, outfile, motifON):
             elif(strand == "0"):
                 strand = "*"
 
-            if(!nameBase):
+            if !nameBase:
                 # name here will be the original coords separated by underscore
                 name = str(linea_split[0]) + ":" + str(linea_split[1]) + "-" + str(linea_split[2])
                 # and then : and the annotation
