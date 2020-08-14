@@ -41,7 +41,21 @@ rule sort_beds:
         """
         {bedops_path}sort-bed {input} > {output}
         """
-#
 
-#
-# rule_call_element:
+rule call_element:
+    input:
+        output_dir + "{sample}.sorted.bed"
+    output:
+        temp(output_dir + "{sample}.bedops.element")
+    shell:
+        """
+        {bedops_path}bedops --element-of 1 {input} {bed_file} --exact
+        """
+# an aggregation over all produced clusters
+rule aggregate:
+    input:
+        expand(output_dir + "{sample}.bedops.element", sample = SAMPLES)
+    output:
+        output_dir + "aggregated.bed"
+    shell:
+        "cat {input} > {output}"
