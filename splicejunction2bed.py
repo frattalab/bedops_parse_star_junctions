@@ -62,16 +62,16 @@ def run(infile, outfile, motifON, nameBase):
 
         split_line = line.split()
         print(split_line)
-        chrom = linea_split[0]
+        chrom = split_line[0]
         print(chrom)
         # if the intromotif filter is on
         # column 5:  intron  motif:  0:  non-canonical;  1:  GT/AG,  2:  CT/AC,  3:  GC/AG,  4:  CT/GC,  5:AT/AC, 6:  GT/AT
 
         # convert from one based to zero based with -1
-        ini_pos = str(int(linea_split[1]) - 1)
-        fin_pos = str(int(linea_split[2]) + 1)
+        ini_pos = str(int(split_line[1]) - 1)
+        fin_pos = str(int(split_line[2]) + 1)
         # strand needs to be converted to -/+/*
-        strand = linea_split[3]
+        strand = split_line[3]
         # # column 4:  strand (0:  undefined, 1:  +, 2:  -)
         if(strand == "1"):
             strand = "+"
@@ -82,15 +82,15 @@ def run(infile, outfile, motifON, nameBase):
         print(nameBase)
         if not nameBase:
             # name here will be the original coords separated by underscore
-            name = str(linea_split[0]) + ":" + str(linea_split[1]) + "-" + str(linea_split[2])
+            name = str(split_line[0]) + ":" + str(split_line[1]) + "-" + str(split_line[2])
             # and then : and the annotation
-            name = name + "|" + str(linea_split[5])
+            name = name + "|" + str(split_line[5])
         else:
             name = baseFileName
 
 
         # score is the number of uniquemappers
-        score = str(linea_split[6])
+        score = str(split_line[6])
         # chr1	11671	12008	chr1_11672_12009:1	0	+
         # chr1	12227	12611	chr1_12228_12612:1	0	+
         # chr1	14829	14968	chr1_14830_14969:1	75	-
