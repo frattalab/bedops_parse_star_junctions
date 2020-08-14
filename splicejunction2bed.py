@@ -50,20 +50,6 @@ def main():
     else:
         usage()
 
-
-def usage():
-    print("\nUsage: python splicejunction2bed [options] <mandatory>")
-    print("Used for turning STAR's SJ.out.tab into bed files")
-    print("Options:")
-    print("\t-h, --help:\n\t\t show this help message and exit")
-    print("\t-mf, --motifFilter:\n\t\t filter out splice junctions with \n\t\t non-canonical motifs")
-    print("\t-n, --name:\n\t\t change name column to the name of the file")
-
-    print("Mandatory:")
-    print("\t-i, --input:\n\t\t File with the regions in bed format")
-    print("\t-o, --output:\n\t\t Name of the gtf file output file. Directory where the file will be created should exist!")
-
-
 def run(infile, outfile, motifON, nameBase):
 
     inf  = open(infile, 'r')
@@ -77,40 +63,38 @@ def run(infile, outfile, motifON, nameBase):
         chrom = linea_split[0]
         # if the intromotif filter is on
         # column 5:  intron  motif:  0:  non-canonical;  1:  GT/AG,  2:  CT/AC,  3:  GC/AG,  4:  CT/GC,  5:AT/AC, 6:  GT/AT
-        if (motifON) & (str(linea_split[4]) == "0"):
-            continue
+
+        # convert from one based to zero based with -1
+        ini_pos = str(int(linea_split[1]) - 1)
+        fin_pos = str(int(linea_split[2]) + 1)
+        # strand needs to be converted to -/+/*
+        strand = linea_split[3]
+        # # column 4:  strand (0:  undefined, 1:  +, 2:  -)
+        if(strand == "1"):
+            strand = "+"
+        elif(strand == "2"):
+            strand = "-"
+        elif(strand == "0"):
+            strand = "*"
+        print(nameBase)
+        if not nameBase:
+            # name here will be the original coords separated by underscore
+            name = str(linea_split[0]) + ":" + str(linea_split[1]) + "-" + str(linea_split[2])
+            # and then : and the annotation
+            name = name + "|" + str(linea_split[5])
         else:
-            # convert from one based to zero based with -1
-            ini_pos = str(int(linea_split[1]) - 1)
-            fin_pos = str(int(linea_split[2]) + 1)
-            # strand needs to be converted to -/+/*
-            strand = linea_split[3]
-            # # column 4:  strand (0:  undefined, 1:  +, 2:  -)
-            if(strand == "1"):
-                strand = "+"
-            elif(strand == "2"):
-                strand = "-"
-            elif(strand == "0"):
-                strand = "*"
-
-            if not nameBase:
-                # name here will be the original coords separated by underscore
-                name = str(linea_split[0]) + ":" + str(linea_split[1]) + "-" + str(linea_split[2])
-                # and then : and the annotation
-                name = name + "|" + str(linea_split[5])
-            else:
-                name = baseFileName
+            name = baseFileName
 
 
-            # score is the number of uniquemappers
-            score = str(linea_split[6])
-            # chr1	11671	12008	chr1_11672_12009:1	0	+
-            # chr1	12227	12611	chr1_12228_12612:1	0	+
-            # chr1	14829	14968	chr1_14830_14969:1	75	-
-            write_line = [chrom, ini_pos, fin_pos, name, score, strand]
-            write_line = "\t".join(write_line)
+        # score is the number of uniquemappers
+        score = str(linea_split[6])
+        # chr1	11671	12008	chr1_11672_12009:1	0	+
+        # chr1	12227	12611	chr1_12228_12612:1	0	+
+        # chr1	14829	14968	chr1_14830_14969:1	75	-
+        write_line = [chrom, ini_pos, fin_pos, name, score, strand]
+        write_line = "\t".join(write_line)
 
-            outf.write(write_line + "\n")
+        outf.write(write_line + "\n")
 
 
 
