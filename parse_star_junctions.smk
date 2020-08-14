@@ -78,5 +78,5 @@ rule annotate_clean:
         output_dir + "aggregated.clean.annotated.bed"
     shell:
         """
-        bedtools intersect -f 1 -r -a {input} -b {bed_file} -wb | awk -v OFS="\t" '{print $1,$2,$3,$4,$5,$6,$10}' > {output}
+        bedtools intersect -f 1 -r -a {input} -b {bed_file} -wb | awk -v OFS="\t" '{{print $1,$2,$3,$4,$5,$6,$10}}' > {output}
         """
