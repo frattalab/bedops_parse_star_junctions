@@ -27,7 +27,7 @@ rule sj_to_bed:
         output_dir + "{sample}.bed"
     shell:
         """
-        python3 splicejunction2bed.py --input {input} --output {output}
+        python3 splicejunction2bed.py --name --input {input} --output {output}
         """
 
 
