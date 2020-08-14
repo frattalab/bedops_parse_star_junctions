@@ -1,6 +1,6 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/home/annbrown/data/buratti_new_shsy5y/"
+project_dir = "/SAN/vyplab/alb_projects/data/4su_full_ward_tdp_kd_ipsc/"
 out_spot = "splicejunctions/"
 bam_spot = "STAR_aligned/"
 bam_suffix = ".Aligned.sorted.out.bam"
