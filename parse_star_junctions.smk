@@ -1,11 +1,11 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/yeo_laser"
+project_dir = "/SAN/vyplab/alb_projects/data/liu_facs_neurons"
 out_spot = "splicejunctions/"
 bam_spot = "linked_bams/"
 bam_suffix = "_unique.bam"
-bed_file = "/SAN/vyplab/alb_projects/data/liumy_new_gene.bed"
-final_output_name = ""
+bed_file = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/my_new_gene.bed"
+final_output_name = "the_new_gene"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
@@ -20,7 +20,7 @@ print(SAMPLES)
 rule all_output:
     input:
         expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
-        output_dir + "aggregated.clean.annotated.bed"
+        output_dir + final_output_name + "aggregated.clean.annotated.bed"
 
 
 
@@ -28,7 +28,7 @@ rule sj_to_bed:
     input:
         bam_dir + "{sample}.SJ.out.tab"
     output:
-        output_dir + "{sample}.bed"
+        output_dir + final_output_name + "{sample}.bed"
     shell:
         """
         python3 splicejunction2bed.py --name --input {input} --output {output}
@@ -59,7 +59,7 @@ rule aggregate:
     input:
         expand(output_dir + "{sample}.bedops.element", sample = SAMPLES)
     output:
-        output_dir + "aggregated.bed"
+        temp(output_dir + "aggregated.bed")
     shell:
         """
         cat {input} > {output}
@@ -68,7 +68,7 @@ rule clean_aggregate:
     input:
         output_dir + "aggregated.bed"
     output:
-        output_dir + "aggregated.clean.bed"
+        temp(output_dir + "aggregated.clean.bed")
     shell:
         """
         bedtools intersect -f 1 -wa -r -a {input} -b {bed_file} > {output}
@@ -77,7 +77,7 @@ rule annotate_clean:
     input:
         output_dir + "aggregated.clean.bed"
     output:
-        output_dir + "aggregated.clean.annotated.bed"
+        output_dir + final_output_name + "aggregated.clean.annotated.bed"
     shell:
         """
         bedtools intersect -f 1 -r -a {input} -b {bed_file} -wb | awk -v OFS="\t" '{{print $1,$2,$3,$4,$5,$6,$10}}' > {output}
