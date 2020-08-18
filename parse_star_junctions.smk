@@ -1,11 +1,13 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/4su_full_ward_tdp_kd_ipsc/"
+project_dir = "/SAN/vyplab/alb_projects/data/yeo_laser"
 out_spot = "splicejunctions/"
-bam_spot = "STAR_aligned/"
-bam_suffix = ".Aligned.sorted.out.bam"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_cryptics.bed"
+bam_spot = "linked_bams/"
+bam_suffix = "_unique.bam"
+bed_file = "/SAN/vyplab/alb_projects/data/liumy_new_gene.bed"
+final_output_name = ""
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
+
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 
 output_dir = os.path.join(project_dir,out_spot)
