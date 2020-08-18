@@ -28,7 +28,7 @@ rule sj_to_bed:
     input:
         bam_dir + "{sample}.SJ.out.tab"
     output:
-        output_dir + final_output_name + "{sample}.bed"
+        output_dir + "{sample}.bed"
     shell:
         """
         python3 splicejunction2bed.py --name --input {input} --output {output}
