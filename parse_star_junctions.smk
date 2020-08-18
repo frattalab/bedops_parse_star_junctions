@@ -57,7 +57,7 @@ rule call_element:
 # an aggregation over all produced clusters
 rule aggregate:
     input:
-        expand(output_dir + "{sample}.bedops.element", sample = SAMPLES)
+        expand(output_dir + final_output_name + "{sample}.bedops.element", sample = SAMPLES)
     output:
         temp(output_dir + final_output_name + "aggregated.bed")
     shell:
@@ -66,7 +66,7 @@ rule aggregate:
         """
 rule clean_aggregate:
     input:
-        output_dir + "aggregated.bed"
+        output_dir + final_output_name + "aggregated.bed"
     output:
         temp(output_dir + final_output_name + "aggregated.clean.bed")
     shell:
@@ -75,7 +75,7 @@ rule clean_aggregate:
         """
 rule annotate_clean:
     input:
-        output_dir + "aggregated.clean.bed"
+        output_dir + final_output_name + "aggregated.clean.bed"
     output:
         output_dir + final_output_name + "aggregated.clean.annotated.bed"
     shell:
