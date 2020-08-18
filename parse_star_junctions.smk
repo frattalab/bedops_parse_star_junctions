@@ -49,7 +49,7 @@ rule call_element:
     input:
         output_dir + "{sample}.sorted.bed"
     output:
-        temp(output_dir + "{sample}.bedops.element")
+        temp(output_dir + final_output_name + "{sample}.bedops.element")
     shell:
         """
         {bedops_path}bedops --element-of 1 {input} {bed_file} > {output}
@@ -59,7 +59,7 @@ rule aggregate:
     input:
         expand(output_dir + "{sample}.bedops.element", sample = SAMPLES)
     output:
-        temp(output_dir + "aggregated.bed")
+        temp(output_dir + final_output_name + "aggregated.bed")
     shell:
         """
         cat {input} > {output}
@@ -68,7 +68,7 @@ rule clean_aggregate:
     input:
         output_dir + "aggregated.bed"
     output:
-        temp(output_dir + "aggregated.clean.bed")
+        temp(output_dir + final_output_name + "aggregated.clean.bed")
     shell:
         """
         bedtools intersect -f 1 -wa -r -a {input} -b {bed_file} > {output}
