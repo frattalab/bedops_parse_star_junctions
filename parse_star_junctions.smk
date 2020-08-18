@@ -58,7 +58,7 @@ rule call_element:
 # an aggregation over all produced clusters
 rule aggregate:
     input:
-        expand(output_dir + final_output_name + "{sample}.bedops.element", sample = SAMPLES)
+        expand(output_dir + final_output_name + ".{sample}.bedops.element", sample = SAMPLES)
     output:
         temp(output_dir + final_output_name + "aggregated.bed")
     shell:
