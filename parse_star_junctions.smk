@@ -19,9 +19,9 @@ print(SAMPLES)
 
 rule all_output:
     input:
-        expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
         expand(output_dir + final_output_name + ".{sample}.bedops.element", sample = SAMPLES),
-        output_dir + final_output_name + "aggregated.clean.annotated.bed"
+        # expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
+        # output_dir + final_output_name + "aggregated.clean.annotated.bed"
 
 
 
