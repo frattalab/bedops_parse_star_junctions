@@ -2,8 +2,8 @@ import os
 # a top level folder where the bams reside
 project_dir = "/SAN/vyplab/alb_projects/data/liu_facs_neurons"
 out_spot = "splicejunctions/"
-bam_spot = "linked_bams/"
-bam_suffix = "_unique.bam"
+bam_spot = "STAR_aligned/"
+bam_suffix = ".Aligned.sorted.out.bam"
 bed_file = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/my_new_gene.bed"
 final_output_name = "the_new_gene"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
@@ -19,9 +19,8 @@ print(SAMPLES)
 
 rule all_output:
     input:
-        expand(output_dir + final_output_name + ".{sample}.bedops.element", sample = SAMPLES),
-        # expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
-        # output_dir + final_output_name + "aggregated.clean.annotated.bed"
+        expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
+        output_dir + final_output_name + "aggregated.clean.annotated.bed"
 
 
 
@@ -50,7 +49,7 @@ rule call_element:
     input:
         output_dir + "{sample}.sorted.bed"
     output:
-        output_dir + final_output_name + ".{sample}.bedops.element"
+        temp(output_dir + final_output_name + ".{sample}.bedops.element")
     shell:
         """
         {bedops_path}bedops --element-of 1 {input} {bed_file} > {output}
