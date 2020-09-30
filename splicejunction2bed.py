@@ -13,16 +13,16 @@
 # column 9:  maximum spliced alignment overhang
 # input looks like.....
 # 0      1        2     3   4   5  6   7     8
-# chr1	11672	12009	1	1	1	0	2	67
-# chr1	12228	12612	1	1	1	0	1	31
-# chr1	14830	14969	2	2	1	75	162	71
+# chr1    11672    12009    1    1    1    0    2    67
+# chr1    12228    12612    1    1    1    0    1    31
+# chr1    14830    14969    2    2    1    75    162    71
 #############################################
 # The output will look like such so that score is the number of unique mappers
 # and the name is the original 1-based star junction and if it was annotated
 #############################################
-# chr1	11671	12008	chr1:11672-12009|1	0	+
-# chr1	12227	12611	chr1:12228-12612|1	0	+
-# chr1	14829	14968	chr1:14830-14969|1	75	-
+# chr1    11671    12008    chr1:11672-12009|1    0    +
+# chr1    12227    12611    chr1:12228-12612|1    0    +
+# chr1    14829    14968    chr1:14830-14969|1    75    -
 
 import argparse, sys, os.path
 from pathlib import Path
@@ -104,9 +104,9 @@ def run(infile, outfile, motifON, nameBase):
 
             # score is the number of uniquemappers
             score = str(linea_split[6])
-            # chr1	11671	12008	chr1_11672_12009:1	0	+
-            # chr1	12227	12611	chr1_12228_12612:1	0	+
-            # chr1	14829	14968	chr1_14830_14969:1	75	-
+            # chr1    11671    12008    chr1_11672_12009:1    0    +
+            # chr1    12227    12611    chr1_12228_12612:1    0    +
+            # chr1    14829    14968    chr1_14830_14969:1    75    -
             write_line = [chrom, ini_pos, fin_pos, name, score, strand]
             write_line = "\t".join(write_line)
 

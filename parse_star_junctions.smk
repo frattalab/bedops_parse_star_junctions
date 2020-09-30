@@ -1,11 +1,11 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/"
+project_dir = "/SAN/vyplab/alb_projects/data/4su_full_ward_tdp_kd_ipsc/"
 out_spot = "splicejunctions/"
 bam_spot = "STAR_aligned/"
 bam_suffix = ".Aligned.sorted.out.bam"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/onecut1.bed"
-final_output_name = "onecut"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13a_cryptics.sorted.bed"
+final_output_name = "unc13a_cryptics"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
