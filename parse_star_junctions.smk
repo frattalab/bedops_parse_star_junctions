@@ -59,7 +59,7 @@ rule aggregate:
     input:
         expand(output_dir + final_output_name + ".{sample}.bedops.element", sample = SAMPLES)
     output:
-        temp(output_dir + final_output_name + "aggregated.bed")
+        output_dir + final_output_name + "aggregated.bed"
     shell:
         """
         cat {input} > {output}
