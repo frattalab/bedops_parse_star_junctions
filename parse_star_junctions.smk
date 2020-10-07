@@ -1,6 +1,6 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/TDP43_RNA/Buratti_SH_SY5Y/processed/splice_junctions"
+project_dir = "/SAN/vyplab/TDP43_RNA/Buratti_SH_SY5Y/processed/"
 out_spot = "splicejunctions/"
 bam_spot = "splice_junctions/"
 bam_suffix = "SJ.out.tab"
