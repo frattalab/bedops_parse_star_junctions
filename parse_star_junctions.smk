@@ -1,11 +1,11 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/TDP43_RNA/Buratti_SH_SY5Y/processed/"
-out_spot = "splicejunctions/"
-bam_spot = "splice_junctions/"
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+out_spot = "parsed_splice_junctions/"
+bam_spot = "sinai_als_sj/"
 bam_suffix = "SJ.out.tab"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13a_cryptics.sorted.bed"
-final_output_name = "dzap_buratti_unc13a_cryptics"
+final_output_name = "all_the_tdp_junctions"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
