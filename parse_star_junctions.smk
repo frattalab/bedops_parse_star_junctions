@@ -61,7 +61,7 @@ rule call_element:
         temp(output_dir + final_output_name + ".{sample}.bedops.element")
     shell:
         """
-        /SAN/vyplab/alb_projects/tools/bedtools -b {bed_file} -a {input} -wa > {output}
+        /SAN/vyplab/alb_projects/tools/bedtools intersect -b {bed_file} -a {input} -wa > {output}
         """
 # an aggregation over all produced clusters
 rule aggregate:
