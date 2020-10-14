@@ -5,7 +5,7 @@ out_spot = "parsed_splice_junctions/"
 bam_spot = "sinai_als_sj/"
 bam_suffix = "SJ.out.tab"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/tdp_junctions_no_filter.bed"
-final_output_name = "FIISSSH_correct_all_tdp_junctions"
+final_output_name = "corrected2_all_tdp_junctions"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
@@ -60,7 +60,7 @@ rule aggregate:
     output:
         output_dir + final_output_name + "aggregated.bed"
     params:
-        cat_call = output_dir + "*.bedops.element"
+        cat_call = output_dir + final_output_name + "*.bedops.element"
     shell:
         """
         cat {params.cat_call} > {output}
