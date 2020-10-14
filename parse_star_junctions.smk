@@ -4,7 +4,7 @@ project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
 out_spot = "parsed_splice_junctions/"
 bam_spot = "sinai_als_sj/"
 bam_suffix = ".SJ.out.tab"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13a_cryptics.sorted.bed"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/tdp_junctions_no_filter.bed"
 final_output_name = "all_the_tdp_junctions"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
@@ -13,7 +13,6 @@ bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
 
-print(os.listdir(bam_dir))
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
 print(SAMPLES)
 
@@ -28,7 +27,7 @@ rule sj_to_bed:
     input:
         bam_dir + "{sample}SJ.out.tab"
     output:
-        output_dir + "{sample}.bed"
+        temp(output_dir + "{sample}.bed")
     shell:
         """
         python3 splicejunction2bed.py --name --input {input} --output {output}
@@ -60,9 +59,11 @@ rule aggregate:
         expand(output_dir + final_output_name + ".{sample}.bedops.element", sample = SAMPLES)
     output:
         output_dir + final_output_name + "aggregated.bed"
+    params:
+        cat_call = output_dir + "*.bedops.element"
     shell:
         """
-        cat {input} > {output}
+        cat {params.cat_call} > {output}
         """
 rule clean_aggregate:
     input:
