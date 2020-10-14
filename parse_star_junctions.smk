@@ -5,7 +5,7 @@ out_spot = "parsed_splice_junctions/"
 bam_spot = "sinai_als_sj/"
 bam_suffix = ".SJ.out.tab"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/tdp_junctions_no_filter.bed"
-final_output_name = "all_the_tdp_junctions"
+final_output_name = "correct_all_tdp_junctions"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
