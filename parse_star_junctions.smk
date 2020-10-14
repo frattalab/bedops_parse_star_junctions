@@ -48,7 +48,7 @@ rule call_element:
     input:
         output_dir + "{sample}.sorted.bed"
     output:
-        temp(output_dir + final_output_name + ".{sample}.bedops.element")
+        output_dir + final_output_name + ".{sample}.bedops.element"
     shell:
         """
         {bedops_path}bedops --element-of 1 {input} {bed_file} > {output}
