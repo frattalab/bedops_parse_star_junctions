@@ -44,14 +44,24 @@ rule sort_beds:
         {bedops_path}sort-bed {input} > {output}
         """
 
+# rule call_element:
+#     input:
+#         output_dir + "{sample}.sorted.bed"
+#     output:
+#         output_dir + final_output_name + ".{sample}.bedops.element"
+#     shell:
+#         """
+#         {bedops_path}bedops --element-of 1 {input} {bed_file} > {output}
+#         """
+
 rule call_element:
     input:
         output_dir + "{sample}.sorted.bed"
     output:
-        output_dir + final_output_name + ".{sample}.bedops.element"
+        temp(output_dir + final_output_name + ".{sample}.bedops.element")
     shell:
         """
-        {bedops_path}bedops --element-of 1 {input} {bed_file} > {output}
+        /SAN/vyplab/alb_projects/tools/bedtools -b {bed_file} -a {input} -wa > {output}
         """
 # an aggregation over all produced clusters
 rule aggregate:
