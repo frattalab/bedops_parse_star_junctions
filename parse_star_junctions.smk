@@ -4,8 +4,8 @@ project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
 out_spot = "vcp_parsed_splice_junctions/"
 bam_spot = "vcp_linked_bams/"
 bam_suffix = "SJ.out.tab"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/tdp_junctions_no_filter.bed"
-final_output_name = "vcp_mn_corrected2_all_tdp_junctions"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13a_cryptics.sorted.bed"
+final_output_name = "vcp_mn_corrected2_unc13junctions"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
