@@ -4,6 +4,7 @@ project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
 out_spot = "vcp_parsed_splice_junctions/"
 bam_spot = "vcp_linked_bams/"
 bam_suffix = "SJ.out.tab"
+sj_suffix = "SJ.out.tab"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13a_cryptics.sorted.bed"
 final_output_name = "vcp_mn_corrected2_unc13junctions"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
@@ -25,7 +26,7 @@ rule all_output:
 
 rule sj_to_bed:
     input:
-        bam_dir + "{sample}SJ.out.tab"
+        bam_dir + "{sample}" + sj_suffix
     output:
         temp(output_dir + "{sample}.bed")
     shell:
