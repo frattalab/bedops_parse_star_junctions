@@ -1,11 +1,11 @@
 import os
 # a top level folder where the bams reside
 project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-out_spot = "parsed_splice_junctions/"
-bam_spot = "sinai_als_sj/"
+out_spot = "vcp_parsed_splice_junctions/"
+bam_spot = "vcp_linked_bams/"
 bam_suffix = "SJ.out.tab"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/tdp_junctions_no_filter.bed"
-final_output_name = "corrected2_all_tdp_junctions"
+final_output_name = "vcp_mn_corrected2_all_tdp_junctions"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
