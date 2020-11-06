@@ -16,6 +16,8 @@ bam_dir = os.path.join(project_dir,bam_spot)
 
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
 print(SAMPLES)
+print("Number of Input Samples")
+print(len(SAMPLES))
 
 rule all_output:
     input:
