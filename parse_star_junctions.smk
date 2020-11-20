@@ -5,8 +5,8 @@ out_spot = "parsed_splice_junctions/"
 bam_spot = "/SAN/vyplab/alb_projects/data/muscle/analysis/STAR_aligned/"
 bam_suffix = ".Aligned.sorted.out.bam"
 sj_suffix = ".SJ.out.tab"
-bed_file = "/SAN/vyplab/alb_projects/data/muscle/analysis/beds/ursa_muscle.junctions.bed"
-final_output_name = "specific_junctions_muscle"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/tdp_junctions_no_filter.bed"
+final_output_name = "tdpjunctions"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
