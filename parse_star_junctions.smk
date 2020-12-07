@@ -12,6 +12,7 @@ bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 
 output_dir = os.path.join(project_dir,out_spot)
+print(output_dir)
 bam_dir = os.path.join(project_dir,bam_spot)
 
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
