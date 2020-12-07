@@ -1,10 +1,10 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/"
+project_dir = "/SAN/outputsplicejunctions/TDP43_RNA/Buratti_SH_SY5Y/"
 out_spot = "splicejunctions/"
-bam_spot = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/all_bams_sym/"
-bam_suffix = ".Aligned.sorted.out.bam"
-sj_suffix = ".SJ.out.tab"
+bam_spot = "/SAN/vyplab/TDP43_RNA/Buratti_SH_SY5Y/processed/splice_junctions/"
+bam_suffix = "SJ.out.tab"
+sj_suffix = "SJ.out.tab"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_and_unc13a.bed"
 final_output_name = "kds_stmn2_and_unc13a"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
