@@ -12,7 +12,6 @@ bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 
 output_dir = os.path.join(project_dir,out_spot)
-print(output_dir)
 bam_dir = os.path.join(project_dir,bam_spot)
 
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
@@ -94,5 +93,7 @@ rule annotate_clean:
         output_dir + final_output_name + "aggregated.clean.annotated.bed"
     shell:
         """
-        bedtools intersect -f 1 -r -a {input} -b {bed_file} -wb | awk -v OFS="\t" '{{print $1,$2,$3,$4,$5,$6,$10}}' > {output}
+        bedtools intersect -f 1 -r -a {input} -b {bed_file} -wb | awk -v OFS="\t" '{{print $1,$2,$3,$4,$5,$6,$10}}' > {output}.tmp
+        {output}.tmp | uniq > {output}
+        rm {output}.tmp
         """
