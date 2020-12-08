@@ -5,8 +5,8 @@ out_spot = "outputsplicejunctions/"
 bam_spot = "/SAN/vyplab/TDP43_RNA/Buratti_SH_SY5Y/processed/splice_junctions/"
 bam_suffix = "SJ.out.tab"
 sj_suffix = "SJ.out.tab"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_and_unc13a.bed"
-final_output_name = "kds_stmn2_and_unc13a"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13b_junctions.bed"
+final_output_name = "unc13b_nmd"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
