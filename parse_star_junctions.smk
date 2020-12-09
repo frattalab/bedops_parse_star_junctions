@@ -5,8 +5,8 @@ out_spot = "outputsplicejunctions/"
 bam_spot = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/all_bams_sym/"
 bam_suffix = ".Aligned.sorted.out.bam"
 sj_suffix = ".SJ.out.tab"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/tdp_junctions_no_filter.bed"
-final_output_name = "tdp_junctions_no_filter"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/potential_cryptic.bed"
+final_output_name = "potential_cryptic"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
