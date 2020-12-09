@@ -1,10 +1,10 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/TDP43_RNA/Buratti_SH_SY5Y/"
-out_spot = "outputsplicejunctions/"
-bam_spot = "/SAN/vyplab/TDP43_RNA/Buratti_SH_SY5Y/processed/splice_junctions/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
+project_dir = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/"
+out_spot = "splicejunctions/"
+bam_spot = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/splicejunctions/"
+bam_suffix = ".sorted.bed"
+sj_suffix = .sorted.bed"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13b_junctions.bed"
 final_output_name = "unc13b_nmd"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
@@ -95,4 +95,5 @@ rule annotate_clean:
         """
         bedtools intersect -f 1 -r -a {input} -b {bed_file} -wb | awk -v OFS="\t" '{{print $1,$2,$3,$4,$5,$6,$10}}' > {output}.tmp
         cat {output}.tmp | uniq > {output}
+        rm {output}.tmp
         """
