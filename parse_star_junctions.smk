@@ -1,12 +1,12 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/"
-out_spot = "outputsplicejunctions/"
+project_dir = "/home/annbrown/data/yeo_laser/linked_bams"
+out_spot = "splicejunctions/"
 bam_spot = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/all_bams_sym/"
-bam_suffix = ".Aligned.sorted.out.bam"
+bam_suffix = "_unique.bam"
 sj_suffix = ".SJ.out.tab"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/potential_cryptic.bed"
-final_output_name = "potential_cryptic"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_and_unc13a.bed"
+final_output_name = "stmn2_and_unc13a"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
