@@ -5,8 +5,8 @@ out_spot = "parsed_splice_junctions/"
 bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
 bam_suffix = "SJ.out.tab"
 sj_suffix = "SJ.out.tab"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13b_junctions.bed"
-final_output_name = "uncb13_nmd"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_and_unc13a.bed"
+final_output_name = "unca_stmn2_plus_the_weird_cerebellar_transcript"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
