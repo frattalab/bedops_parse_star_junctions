@@ -5,8 +5,8 @@ out_spot = "parsed_splice_junctions_cellines/"
 bam_spot = "all_bams_kds_linked/"
 bam_suffix = ".Aligned.sorted.out.bam"
 sj_suffix = ".SJ.out.tab"
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/insr_annotated_cryptic.bed"
-final_output_name = "insr_annotated_cryptic"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13b_junctions.bed "
+final_output_name = "unc13b_nmd"
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
