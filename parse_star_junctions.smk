@@ -13,7 +13,7 @@ bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
-
+print(bam_dir)
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
 print(SAMPLES)
 print("Number of Input Samples")
