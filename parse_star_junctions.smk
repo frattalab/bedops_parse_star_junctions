@@ -1,9 +1,9 @@
 import os
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_sj_out_kds_linked/"
 out_spot = "parsed_splice_junctions/"
-bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-bam_suffix = "SJ.out.tab"
+bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/"
+bam_suffix = ".Aligned.sorted.out."
 sj_suffix = "SJ.out.tab"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/insr_annotated_cryptic.bed"
 final_output_name = "insr_annotated_cryptic"
