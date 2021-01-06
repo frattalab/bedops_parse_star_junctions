@@ -1,23 +1,23 @@
 import os
 ####Folders and all the other stuff
 ####humans
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-out_spot = "parsed_splice_junctions/"
-bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+# out_spot = "parsed_splice_junctions/"
+# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
 ####cell lines
 # # a top level folder where the bams reside
-# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-# out_spot = "parsed_splice_junctions_cellines/"
-# bam_spot = "all_bams_kds_linked/"
-# bam_suffix = ".Aligned.sorted.out.bam"
-# sj_suffix = ".SJ.out.tab"
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+out_spot = "parsed_splice_junctions_cellines/"
+bam_spot = "all_bams_kds_linked/"
+bam_suffix = ".Aligned.sorted.out.bam"
+sj_suffix = ".SJ.out.tab"
 
 
 ####Which bed file, and what you want to name it
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/ntrk2_5utr.bed"
-final_output_name = "ntrk2_5utr_event"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/ntrk2_3utr.junctions.bed"
+final_output_name = "ntrk2_3utr_junctions"
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
