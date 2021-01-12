@@ -16,18 +16,18 @@ sj_suffix = "SJ.out.tab"
 
 
 ####Which bed file, and what you want to name it
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/ntrk2_3utr.junctions.bed"
-final_output_name = "ntrk2_3utr_junctions"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/lamp2_3utrs.bed"
+final_output_name = "lamp2_expression"
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
-print(bam_dir)
+# print(bam_dir)
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
-print(SAMPLES)
-print("Number of Input Samples")
-print(len(SAMPLES))
+# print(SAMPLES)
+# print("Number of Input Samples")
+# print(len(SAMPLES))
 
 rule all_output:
     input:
