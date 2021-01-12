@@ -8,7 +8,7 @@ import os
 # sj_suffix = "SJ.out.tab"
 ####cell lines
 # a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+project_dir = "/SAN/vyplab/alb_projects/data/"
 out_spot = "parsed_splice_junctions_cellines/"
 bam_spot = "all_bams_kds_linked/"
 bam_suffix = ".Aligned.sorted.out.bam"
