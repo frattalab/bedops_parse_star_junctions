@@ -10,7 +10,7 @@ import os
 project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
 out_spot = "normalized_annotated/beds/"
 bam_spot = "normalized_annotated/"
-bam_suffix = "_normalized_annotated.csv"
+bam_suffix = ".csv"
 sj_suffix = "_normalized_annotated.csv"
 ####cell lines
 # # a top level folder where the bams reside
