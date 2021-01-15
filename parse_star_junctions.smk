@@ -1,17 +1,17 @@
 import os
 ####Folders and all the other stuff
 ####humans
-# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-# out_spot = "parsed_splice_junctions/"
-# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-# bam_suffix = "SJ.out.tab"
-# sj_suffix = "SJ.out.tab"
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+out_spot = "parsed_splice_junctions/"
+bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
+bam_suffix = "SJ.out.tab"
+sj_suffix = "SJ.out.tab"
 ####humans - as PSI
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
-out_spot = "normalized_annotated/beds/"
-bam_spot = "normalized_annotated/"
-bam_suffix = ".csv"
-sj_suffix = "_normalized_annotated.csv"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
+# out_spot = "normalized_annotated/beds/"
+# bam_spot = "normalized_annotated/"
+# bam_suffix = ".csv"
+# sj_suffix = "_normalized_annotated.csv"
 ####cell lines
 # a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
@@ -23,8 +23,8 @@ sj_suffix = "_normalized_annotated.csv"
 
 ####Which bed file, and what you want to name it
 
-bed_file = "/home/annbrown/pipelines/bedops_parse_star_junctions/foursu_delta.bed"
-final_output_name = "foursu_delta_novel_kd"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_and_unc13a_atxn1.sorted.bed"
+final_output_name = "atxn1_and_aars"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
