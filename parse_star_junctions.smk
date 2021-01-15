@@ -13,7 +13,7 @@ bam_spot = "normalized_annotated/"
 bam_suffix = ".csv"
 sj_suffix = "_normalized_annotated.csv"
 ####cell lines
-# # a top level folder where the bams reside
+# a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
 # out_spot = "parsed_splice_junctions_cellines/"
 # bam_spot = "all_bams_kds_linked/"
@@ -22,18 +22,22 @@ sj_suffix = "_normalized_annotated.csv"
 
 
 ####Which bed file, and what you want to name it
+
 bed_file = "/home/annbrown/pipelines/bedops_parse_star_junctions/foursu_delta.bed"
 final_output_name = "foursu_delta_novel_kd"
+
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
 output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
-print(bam_dir)
+# print(bam_dir)
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
+
 print(output_dir)
 print("Number of Input Samples")
 print(len(SAMPLES))
+
 
 rule all_output:
     input:
