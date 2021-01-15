@@ -31,7 +31,7 @@ output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
 print(bam_dir)
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
-print(SAMPLES)
+print(output_dir)
 print("Number of Input Samples")
 print(len(SAMPLES))
 
