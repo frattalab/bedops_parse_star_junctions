@@ -1,11 +1,17 @@
 import os
 ####Folders and all the other stuff
 ####humans
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-out_spot = "parsed_splice_junctions/"
-bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+# out_spot = "parsed_splice_junctions/"
+# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
+####humans - as PSI
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
+out_spot = "normalized_annotated/beds/"
+bam_spot = "normalized_annotated/"
+bam_suffix = ".csv"
+sj_suffix = "_normalized_annotated.csv"
 ####cell lines
 # a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
@@ -16,8 +22,10 @@ sj_suffix = "SJ.out.tab"
 
 
 ####Which bed file, and what you want to name it
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/lamp2_3utrs.bed"
-final_output_name = "lamp2_expression"
+
+bed_file = "/home/annbrown/pipelines/bedops_parse_star_junctions/foursu_delta.bed"
+final_output_name = "foursu_delta_novel_kd"
+
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
@@ -25,9 +33,11 @@ output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
 # print(bam_dir)
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
-# print(SAMPLES)
-# print("Number of Input Samples")
-# print(len(SAMPLES))
+
+print(output_dir)
+print("Number of Input Samples")
+print(len(SAMPLES))
+
 
 rule all_output:
     input:
@@ -35,15 +45,15 @@ rule all_output:
         output_dir + final_output_name + "aggregated.clean.annotated.bed"
 
 
-rule sj_to_bed:
-    input:
-        bam_dir + "{sample}" + sj_suffix
-    output:
-        temp(output_dir + "{sample}.bed")
-    shell:
-        """
-        python3 splicejunction2bed.py --name --input {input} --output {output}
-        """
+# rule sj_to_bed:
+#     input:
+#         bam_dir + "{sample}" + sj_suffix
+#     output:
+#         temp(output_dir + "{sample}.bed")
+#     shell:
+#         """
+#         python3 splicejunction2bed.py --name --input {input} --output {output}
+#         """
 
 
 rule sort_beds:
