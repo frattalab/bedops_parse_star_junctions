@@ -41,15 +41,15 @@ rule all_output:
         output_dir + final_output_name + "aggregated.clean.annotated.bed"
 
 
-rule sj_to_bed:
-    input:
-        bam_dir + "{sample}" + sj_suffix
-    output:
-        temp(output_dir + "{sample}.bed")
-    shell:
-        """
-        python3 splicejunction2bed.py --name --input {input} --output {output}
-        """
+# rule sj_to_bed:
+#     input:
+#         bam_dir + "{sample}" + sj_suffix
+#     output:
+#         temp(output_dir + "{sample}.bed")
+#     shell:
+#         """
+#         python3 splicejunction2bed.py --name --input {input} --output {output}
+#         """
 
 
 rule sort_beds:
