@@ -1,11 +1,17 @@
 import os
 ####Folders and all the other stuff
 ####humans
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-out_spot = "parsed_splice_junctions/"
-bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+# out_spot = "parsed_splice_junctions/"
+# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
+####humans - as PSI
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/normalized_annotated/"
+out_spot = "beds/"
+bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/normalized_annotated/"
+bam_suffix = "_normalized_annotated.bed"
+sj_suffix = "_normalized_annotated.bed"
 ####cell lines
 # # a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
