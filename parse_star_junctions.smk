@@ -11,7 +11,7 @@ project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_sa
 out_spot = "beds/"
 bam_spot = "normalized_annotated/"
 bam_suffix = "_normalized_annotated.csv"
-sj_suffix = "_normalized_annotated.bed"
+sj_suffix = "_normalized_annotated.csv"
 ####cell lines
 # # a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
