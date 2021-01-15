@@ -7,9 +7,9 @@ import os
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
 ####humans - as PSI
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/normalized_annotated/"
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
 out_spot = "beds/"
-bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/normalized_annotated/"
+bam_spot = "normalized_annotated/"
 bam_suffix = "_normalized_annotated.bed"
 sj_suffix = "_normalized_annotated.bed"
 ####cell lines
