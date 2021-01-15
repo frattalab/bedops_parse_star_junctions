@@ -22,8 +22,8 @@ sj_suffix = "_normalized_annotated.csv"
 
 
 ####Which bed file, and what you want to name it
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/ntrk2_3utr.junctions.bed"
-final_output_name = "ntrk2_3utr_junctions"
+bed_file = "/home/annbrown/pipelines/bedops_parse_star_junctions/foursu_delta.bed"
+final_output_name = "foursu_delta_novel_kd"
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
 
