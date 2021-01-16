@@ -59,7 +59,7 @@ option_list = list(
                 help="GTF to annotated against", metavar="character"),
     make_option(c("-o", "--output_folder"), type="character", default="out.txt",
                 help="output file name", metavar="character"),
-    make_option(c("-m", "--mincount"), type="character", default=1
+    make_option(c("-m", "--mincount"), type="character", default=1,
                 help="mincount to consider a junction", metavar="integer")
 );
 
