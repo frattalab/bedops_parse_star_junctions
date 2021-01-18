@@ -45,7 +45,8 @@ rule normalize_annotate:
     params:
         gtf = gtf,
         sample_name = "{sample}",
-        output_folder = output_dir
+        output_folder = output_dir,
+        mincount = 1
     shell:
         """
         mkdir -p {output_dir}
@@ -53,7 +54,7 @@ rule normalize_annotate:
         --sample_name {params.sample_name} \
         --sample_file {input} \
         --gtf {params.gtf} \
-        --output_folder {params.output_folder}
+        --output_folder {params.output_folder} -m {params.mincount}
         """
 
 rule to_bed:
@@ -63,11 +64,11 @@ rule to_bed:
         output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed"
     params:
         bed_dir = output_dir + "beds/",
-        mincount = 1
+
     shell:
         """
         mkdir -p {params.bed_dir}
-        python3 splice_junction_psi_tobed.py -i {input} -o {output} -m {params.mincount}
+        python3 splice_junction_psi_tobed.py -i {input} -o {output}
         """
 
 
