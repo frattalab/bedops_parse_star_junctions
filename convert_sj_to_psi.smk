@@ -67,7 +67,7 @@ rule to_bed:
     shell:
         """
         mkdir -p {params.bed_dir}
-        python3 scripts/splice_junction_psi_tobed.py -i {input} -o {output} -m {params.mincount}
+        python3 splice_junction_psi_tobed.py -i {input} -o {output} -m {params.mincount}
         """
 
 
