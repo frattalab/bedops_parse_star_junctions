@@ -36,7 +36,7 @@ output_the_psi_files = function(sample_name,
 
 
   annotated_clustered_normed = annotated_clustered %>% left_join(normed,by = "index")
-g
+
   setnames(annotated_clustered_normed,"count_1", sample_name)
 
   annotated_clustered_normed = annotated_clustered %>% left_join(normed,by = "index")
