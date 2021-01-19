@@ -21,7 +21,7 @@ FOLDER=submissions/$(date +"%Y%m%d%H%M")
 mkdir -p ${FOLDER}
 
 
-snakemake -s convert_sj_to_psitemp.smk \
+snakemake -s convert_sj_to_psi.smk \
 --until normalize_annotate \
 --jobscript cluster_qsub.sh \
 --cluster-config cluster.yaml \
@@ -30,4 +30,3 @@ snakemake -s convert_sj_to_psitemp.smk \
 --nolock \
 --rerun-incomplete \
 --latency-wait 100
-
