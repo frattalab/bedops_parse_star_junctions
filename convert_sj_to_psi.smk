@@ -62,15 +62,24 @@ rule to_bed:
         output_dir + "{sample}" + "_normalized_annotated.csv"
     output:
         output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed"
+    group: "to_bed"
     params:
-        bed_dir = output_dir + "beds/",
-
+        bed_dir = output_dir + "beds/"
     shell:
         """
         mkdir -p {params.bed_dir}
         python3 splice_junction_psi_tobed.py -i {input} -o {output}
         """
-
+rule dummy_agg_to_bed:
+    input:
+        expand(output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed",sample=SAMPLES)
+    output:
+        output_dir  + "beds/beds_dones"
+    group: "to_bed"
+    shell:
+        """
+        touch {output}
+        """
 
 
 # rule squashed_normalize_annotate:

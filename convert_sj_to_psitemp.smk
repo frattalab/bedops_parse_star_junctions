@@ -10,9 +10,9 @@ gtf = "/SAN/vyplab/vyplab_reference_genomes/annotation/human/GRCh38/gencode.v34.
 ####cell lines
 # input_sj_folder = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/sj_files_only/"
 ####muscles
-input_sj_folder = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/splicejunctions/"
+input_sj_folder = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/all_bams_sym/"
 out_spot = "normalized_annotated/"
-sj_suffix = ".sorted.bed"
+sj_suffix = ".SJ.out.tab"
 
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
