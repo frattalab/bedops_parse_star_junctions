@@ -33,9 +33,9 @@ the same folder, (symlinks are fine!)
 
 `bed_file` - a bed file of junctions you want to compare against
 
-`final_output_name` - a name for your file. the final output file will be located in
+`final_output_name` - a name for your file. the final output file will be located in:
 
-`{project_dir}/{out_spot}/{final_output_name}.aggregated.clean.annotated.bed"
+`{project_dir}/{out_spot}/{final_output_name}.aggregated.clean.annotated.bed`
 
 
 This will contain only the junctions in `bed_file` and with the names of the junction and the names of the file it was found it
@@ -60,4 +60,6 @@ chrY	57208979	57209532	sample02.SJ.out	0	+
 chrY	57209059	57209219	sample02.SJ.out	0	+
 
 
-The second part uses Dasper to annotate relative to a GTF and convert STAR's splice junction counts to percent spliced in
+The second part uses [Dasper](https://github.com/dzhang32/dasper/) to annotate relative to a GTF and convert STAR's splice junction counts to percent spliced in.
+
+Feel free to try linking the 2 together but that part is highly developmental yet, so buyer-beware.
