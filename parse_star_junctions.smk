@@ -23,8 +23,8 @@ sj_suffix = "SJ.out.tab"
 
 ####Which bed file, and what you want to name it
 
-bed_file = "/home/annbrown/pipelines/bedops_parse_star_junctions/foursu_delta.bed"
-final_output_name = "foursu_delta_novel_kd"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_and_unc13a_atxn1.sorted.bed"
+final_output_name = "atxn1_and_aars"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
