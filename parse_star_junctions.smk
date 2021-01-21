@@ -28,8 +28,8 @@ bam_suffix = ".csv"
 sj_suffix = "_normalized_annotated.csv"
 ####Which bed file, and what you want to name it
 
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"
-final_output_name = "cryptic_in_any_kd"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/anynormal_splicing_change.bed"
+final_output_name = "anynormal_splicing_change"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
