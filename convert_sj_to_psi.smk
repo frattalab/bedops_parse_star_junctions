@@ -31,6 +31,7 @@ rule all_normalize_annotate:
     input:
         expand(output_dir + "{sample}" + "_normalized_annotated.csv", sample = SAMPLES),
         expand(output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed", sample = SAMPLES),
+        output_dir  + "beds/beds_dones"
 
         # os.path.join(output_dir, "normalized_annotated_combined_samples.csv"),
         # os.path.join(output_dir, "normalized_annotated_combined_samples.csv")
