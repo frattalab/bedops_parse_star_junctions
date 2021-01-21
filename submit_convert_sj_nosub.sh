@@ -4,8 +4,9 @@
 
 #$ -cwd
 #$ -V
-#$ -l h_vmem=1.9G,h_rt=72:00:00,tmem=1.9G
-
+#$ -l h_vmem=14G,tmem=14G,h_rt=24:00:00
+#$ -pe smp 4
+#$ -R y
 
 # join stdout and stderr output
 #$ -j y
@@ -22,10 +23,7 @@ mkdir -p ${FOLDER}
 
 
 snakemake -s convert_sj_to_psi.smk \
---jobscript cluster_qsub.sh \
---cluster-config cluster.yaml \
---cluster-sync "qsub -l h_vmem={cluster.h_vmem},h_rt={cluster.h_rt} -o $FOLDER {cluster.submission_string}" \
--j 50 \
+-j 4 \
 --nolock \
 --rerun-incomplete \
 --latency-wait 100
