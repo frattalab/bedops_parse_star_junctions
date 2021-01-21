@@ -4,7 +4,7 @@
 #$ -N convert_sj_to_psi_nosub
 #$ -cwd
 #$ -V
-#$ -l h_vmem=14G,tmem=14G,h_rt=24:00:00
+#$ -l h_vmem=4G,tmem=4G,h_rt=24:00:00
 #$ -pe smp 4
 #$ -R y
 
