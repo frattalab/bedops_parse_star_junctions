@@ -10,7 +10,7 @@
 
 # join stdout and stderr output
 #$ -j y
-#$ -sync y
+
 
 if [ "$1" != "" ]; then
     RUN_NAME=$1
