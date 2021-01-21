@@ -26,8 +26,12 @@ sj_suffix = "SJ.out.tab"
 bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/stmn2_and_unc13a_atxn1.sorted.bed"
 final_output_name = "atxn1_and_aars"
 
-# =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
+#### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
+bedtools_path = "/SAN/vyplab/alb_projects/tools/bedtools"
+
+# =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
+
 
 output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
@@ -45,15 +49,15 @@ rule all_output:
         output_dir + final_output_name + "aggregated.clean.annotated.bed"
 
 
-# rule sj_to_bed:
-#     input:
-#         bam_dir + "{sample}" + sj_suffix
-#     output:
-#         temp(output_dir + "{sample}.bed")
-#     shell:
-#         """
-#         python3 splicejunction2bed.py --name --input {input} --output {output}
-#         """
+rule sj_to_bed:
+    input:
+        bam_dir + "{sample}" + sj_suffix
+    output:
+        temp(output_dir + "{sample}.bed")
+    shell:
+        """
+        python3 splicejunction2bed.py --name --input {input} --output {output}
+        """
 
 
 rule sort_beds:
@@ -66,24 +70,16 @@ rule sort_beds:
         {bedops_path}sort-bed {input} > {output}
         """
 
-# rule call_element:
-#     input:
-#         output_dir + "{sample}.sorted.bed"
-#     output:
-#         output_dir + final_output_name + ".{sample}.bedops.element"
-#     shell:
-#         """
-#         {bedops_path}bedops --element-of 1 {input} {bed_file} > {output}
-#         """
-
 rule call_element:
     input:
         output_dir + "{sample}.sorted.bed"
     output:
         temp(output_dir + final_output_name + ".{sample}.bedops.element")
+    params:
+        bedtools = bedtools_path
     shell:
         """
-        /SAN/vyplab/alb_projects/tools/bedtools intersect -b {bed_file} -a {input} -wa > {output}
+        {params.bedtools} intersect -b {bed_file} -a {input} -wa > {output}
         """
 # an aggregation over all produced clusters
 rule aggregate:
