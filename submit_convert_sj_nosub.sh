@@ -1,7 +1,7 @@
 #!/bin/bash
 #Submit to the cluster, give it a unique name
 #$ -S /bin/bash
-
+#$ convert_sj_to_psi_nosub
 #$ -cwd
 #$ -V
 #$ -l h_vmem=14G,tmem=14G,h_rt=24:00:00
