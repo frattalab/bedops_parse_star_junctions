@@ -82,19 +82,19 @@ rule dummy_agg_to_bed:
         """
 
 
-# rule squashed_normalize_annotate:
-#     input:
-#         all_parsed_csvs = get_single_psi_parsed_files_dasper(SAMPLES)
-#     output:
-#         os.path.join(output_dir, "normalized_annotated_combined_samples.csv")
-#     params:
-#         dir_of_normed = output_dir
-#     shell:
-#         """
-#         Rscript scripts/combine_annotated_psi.R \
-#         --folder {params.dir_of_normed} \
-#         --out {output}
-#         """
+rule squashed_normalize_annotate:
+    input:
+        all_parsed_csvs = get_single_psi_parsed_files_dasper(SAMPLES)
+    output:
+        os.path.join(output_dir, "normalized_annotated_combined_samples.csv")
+    params:
+        dir_of_normed = output_dir
+    shell:
+        """
+        Rscript combine_annotated_psi.R \
+        --folder {params.dir_of_normed} \
+        --out {output}
+        """
 # rule squashed_normalize_annotate:
 #     input:
 #         all_parsed_csvs = get_single_psi_parsed_files_dasper(SAMPLES)
