@@ -37,7 +37,6 @@ bedtools_path = "/SAN/vyplab/alb_projects/tools/bedtools"
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 
-
 output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
 # print(bam_dir)
