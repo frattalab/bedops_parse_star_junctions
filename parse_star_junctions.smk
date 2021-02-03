@@ -45,6 +45,7 @@ SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
 print(output_dir)
 print("Number of Input Samples")
 print(len(SAMPLES))
+print(SAMPLES)
 
 
 rule all_output:
