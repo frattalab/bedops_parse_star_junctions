@@ -65,17 +65,17 @@ rule all_output:
 #         """
 #
 
-rule sort_beds:
-    input:
-        output_dir + "{sample}.bed"
-    wildcard_constraints:
-        sample="|".join(SAMPLES)
-    output:
-        output_dir + "{sample}.sorted.bed"
-    shell:
-        """
-        {bedops_path}sort-bed {input} > {output}
-        """
+# rule sort_beds:
+#     input:
+#         output_dir + "{sample}.bed"
+#     wildcard_constraints:
+#         sample="|".join(SAMPLES)
+#     output:
+#         output_dir + "{sample}.sorted.bed"
+#     shell:
+#         """
+#         {bedops_path}sort-bed {input} > {output}
+#         """
 
 rule call_element:
     input:
