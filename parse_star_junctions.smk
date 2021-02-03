@@ -22,7 +22,7 @@
 ####cell lines - as PSI
 # a top level folder where the bams reside
 project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/sj_files_only/"
-out_spot = "normalized_annotated/beds/analyzed/"
+out_spot = "normalized_annotated/beds/"
 bam_spot = "normalized_annotated/"
 bam_suffix = ".csv"
 sj_suffix = "_normalized_annotated.csv"
