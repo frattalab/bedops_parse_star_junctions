@@ -67,6 +67,8 @@ rule all_output:
 rule sort_beds:
     input:
         output_dir + "{sample}.bed"
+    wildcard_constraints:
+        sample="|".join(SAMPLES)
     output:
         output_dir + "{sample}.sorted.bed"
     shell:
