@@ -28,8 +28,8 @@ bam_suffix = ".csv"
 sj_suffix = "_normalized_annotated.csv"
 # ####Which bed file, and what you want to name it
 
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/hnrnpc_cryptics.bed"
-final_output_name = "hnrnpc_kd"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/liu_cryptics.junctions.bed"
+final_output_name = "liu_parse"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
@@ -45,7 +45,7 @@ SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
 print(output_dir)
 print("Number of Input Samples")
 print(len(SAMPLES))
-print(SAMPLES)
+
 
 
 rule all_output:
@@ -54,28 +54,28 @@ rule all_output:
         output_dir + final_output_name + "aggregated.clean.annotated.bed"
 
 
-# rule sj_to_bed:
-#     input:
-#         bam_dir + "{sample}" + sj_suffix
-#     output:
-#         temp(output_dir + "{sample}.bed")
-#     shell:
-#         """
-#         python3 splicejunction2bed.py --name --input {input} --output {output}
-#         """
-#
+rule sj_to_bed:
+    input:
+        bam_dir + "{sample}" + sj_suffix
+    output:
+        temp(output_dir + "{sample}.bed")
+    shell:
+        """
+        python3 splicejunction2bed.py --name --input {input} --output {output}
+        """
 
-# rule sort_beds:
-#     input:
-#         output_dir + "{sample}.bed"
-#     wildcard_constraints:
-#         sample="|".join(SAMPLES)
-#     output:
-#         output_dir + "{sample}.sorted.bed"
-#     shell:
-#         """
-#         {bedops_path}sort-bed {input} > {output}
-#         """
+
+rule sort_beds:
+    input:
+        output_dir + "{sample}.bed"
+    wildcard_constraints:
+        sample="|".join(SAMPLES)
+    output:
+        output_dir + "{sample}.sorted.bed"
+    shell:
+        """
+        {bedops_path}sort-bed {input} > {output}
+        """
 
 rule call_element:
     input:
