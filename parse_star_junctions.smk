@@ -67,7 +67,7 @@ rule sort_beds:
 
     shell:
         """
-        {bedops_path}sort-bed {input} > {output}
+        sort-bed {input} > {output}
         """
 
 rule call_element:
