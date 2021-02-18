@@ -1,14 +1,11 @@
 import os
-####GTF
-gtf = "/SAN/vyplab/vyplab_reference_genomes/annotation/human/GRCh38/gencode.v34.annotation.gtf"
+configfile: "config.yaml"
 
-####Folders and all the other stuff
-####humans END in backslash
-out_spot = "normalized_annotated/"
-input_sj_folder = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
-sj_suffix = ".SJ.out.tab"
-####cell lines
-# input_sj_folder = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/sj_files_only/"
+gtf = config["gtf"]
+input_sj_folder = config["input_sj_folder"]
+out_spot = config["out_spot"]
+sj_suffix = config["pt2_sj_suffix"]
+
 
 
 
@@ -41,13 +38,19 @@ rule all_normalize_annotate:
 rule normalize_annotate:
     input:
         input_sj_folder + "{sample}" + sj_suffix
+
     output:
         output_dir + "{sample}" + "_normalized_annotated.csv"
+
     params:
         gtf = gtf,
         sample_name = "{sample}",
         output_folder = output_dir,
         mincount = 1
+
+    conda:
+        "bedops_parse_star.yaml"
+
     shell:
         """
         mkdir -p {output_dir}
@@ -61,11 +64,15 @@ rule normalize_annotate:
 rule to_bed:
     input:
         output_dir + "{sample}" + "_normalized_annotated.csv"
+
     output:
         output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed"
+
     group: "to_bed"
+
     params:
         bed_dir = output_dir + "beds/"
+
     shell:
         """
         mkdir -p {params.bed_dir}
@@ -74,9 +81,12 @@ rule to_bed:
 rule dummy_agg_to_bed:
     input:
         expand(output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed",sample=SAMPLES)
+
     output:
         output_dir  + "beds/beds_dones"
+
     group: "to_bed"
+
     shell:
         """
         touch {output}
