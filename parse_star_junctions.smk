@@ -15,7 +15,19 @@ bedops_path = config["bedops_path"]
 
 
 output_dir = os.path.join(project_dir,out_spot)
-bam_dir = os.path.join(project_dir,bam_spot)
+
+if os.path.isabs(bam_spot):
+
+    if bam_spot.endswith('/'):
+        bam_dir = bam_spot
+    else:
+        bam_dir = bam_spot + "/"
+
+else:
+     os.path.join(project_dir, bam_spot, '')
+
+
+# bam_dir = os.path.join(project_dir,bam_spot)
 # print(bam_dir)
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
 
