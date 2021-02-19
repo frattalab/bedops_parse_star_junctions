@@ -24,7 +24,7 @@ if os.path.isabs(bam_spot):
         bam_dir = bam_spot + "/"
 
 else:
-     os.path.join(project_dir, bam_spot, '')
+    bam_dir = os.path.join(project_dir, bam_spot, '')
 
 
 # bam_dir = os.path.join(project_dir,bam_spot)
