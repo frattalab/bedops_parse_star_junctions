@@ -35,9 +35,11 @@ print(output_dir)
 print("Number of Input Samples")
 print(len(SAMPLES))
 
+localrule: copy_config
 
 rule all_output:
     input:
+        output_dir + "bedops_parse_star_junctions_config.yaml",
         expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
         output_dir + final_output_name + "aggregated.clean.annotated.bed"
 
@@ -135,4 +137,17 @@ rule annotate_clean:
         bedtools intersect -f 1 -r -a {input} -b {bed_file} -wb | awk -v OFS="\t" '{{print $1,$2,$3,$4,$5,$6,$10}}' > {output}.tmp
         cat {output}.tmp | uniq > {output}
         rm {output}.tmp
+        """
+
+
+rule copy_config:
+    input:
+        output_dir + final_output_name + "aggregated.clean.annotated.bed"
+
+    output:
+        output_dir + "bedops_parse_star_junctions_config.yaml"
+
+    shell:
+        """
+        cp config.yaml {output}
         """
