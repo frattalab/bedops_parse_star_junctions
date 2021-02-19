@@ -35,7 +35,7 @@ print(output_dir)
 print("Number of Input Samples")
 print(len(SAMPLES))
 
-localrule: copy_config
+local rules: all_output, copy_config
 
 rule all_output:
     input:
