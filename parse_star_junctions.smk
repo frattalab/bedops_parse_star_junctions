@@ -79,8 +79,8 @@ rule call_element:
     output:
         temp(output_dir + final_output_name + ".{sample}.bedops.element")
 
-    params:
-        bedtools = bedtools_path
+    #params:
+        #bedtools = bedtools_path
 
     conda:
         "bedops_parse_star.yaml"
