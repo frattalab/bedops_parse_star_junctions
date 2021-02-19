@@ -51,6 +51,9 @@ rule sj_to_bed:
     output:
         temp(output_dir + "{sample}.bed")
 
+    group:
+        "prepare_sample_beds"
+
     shell:
         """
         python3 splicejunction2bed.py --name --input {input} --output {output}
@@ -66,6 +69,9 @@ rule sort_beds:
 
     conda:
         "bedops_parse_star.yaml"
+
+    group:
+        "prepare_sample_beds"
 
     shell:
         """
@@ -85,6 +91,9 @@ rule call_element:
     conda:
         "bedops_parse_star.yaml"
 
+    group:
+        "prep_sample_beds"
+
     shell:
         """
         bedtools intersect -b {bed_file} -a {input} -wa > {output}
@@ -102,6 +111,9 @@ rule aggregate:
     params:
         cat_call = output_dir + final_output_name + "*.bedops.element"
 
+    group:
+        "get_aggregate_bed"
+
     shell:
         """
         cat {params.cat_call} > {output}
@@ -118,6 +130,9 @@ rule clean_aggregate:
     conda:
         "bedops_parse_star.yaml"
 
+    group:
+        "get_aggregate_bed"
+
     shell:
         """
         bedtools intersect -f 1 -wa -r -a {input} -b {bed_file} > {output}
@@ -131,6 +146,9 @@ rule annotate_clean:
 
     conda:
         "bedops_parse_star.yaml"
+
+    group:
+        "get_aggregate_bed"
 
     shell:
         """
