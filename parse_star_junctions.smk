@@ -92,7 +92,7 @@ rule call_element:
         "bedops_parse_star.yaml"
 
     group:
-        "prep_sample_beds"
+        "prepare_sample_beds"
 
     shell:
         """
