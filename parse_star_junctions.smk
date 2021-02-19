@@ -10,8 +10,8 @@ sj_suffix = config["pt1_sj_suffix"]
 bed_file = config["bed_file"]
 final_output_name = config["final_output_name"]
 
-bedtools_path = config["bedtools_path"]
-bedops_path = config["bedops_path"]
+# bedtools_path = config["bedtools_path"]
+# bedops_path = config["bedops_path"]
 
 
 output_dir = os.path.join(project_dir,out_spot)
