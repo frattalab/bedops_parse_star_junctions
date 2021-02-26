@@ -7,18 +7,18 @@
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
 # ####humans - as PSI
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
-out_spot = "normalized_annotated/beds/"
-bam_spot = "normalized_annotated/"
-bam_suffix = ".csv"
-sj_suffix = "_normalized_annotated.csv"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
+# out_spot = "normalized_annotated/beds/"
+# bam_spot = "normalized_annotated/"
+# bam_suffix = ".csv"
+# sj_suffix = "_normalized_annotated.csv"
 ####cell lines
-# a top level folder where the bams reside
-# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-# out_spot = "parsed_splice_junctions_cellines/"
-# bam_spot = "all_bams_kds_linked/"
-# bam_suffix = ".Aligned.sorted.out.bam"
-# sj_suffix = ".SJ.out.tab"
+a top level folder where the bams reside
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+out_spot = "parsed_splice_junctions_cellines/"
+bam_spot = "all_bams_kds_linked/"
+bam_suffix = ".Aligned.sorted.out.bam"
+sj_suffix = ".SJ.out.tab"
 ####cell lines - as PSI
 # a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/sj_files_only/"
@@ -28,8 +28,8 @@ sj_suffix = "_normalized_annotated.csv"
 # sj_suffix = "_normalized_annotated.csv"
 # ####Which bed file, and what you want to name it
 
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/liu_cryptics.junctions.bed"
-final_output_name = "liu_parse"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cadps_junctions.bed"
+final_output_name = "cadps_junctions"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
