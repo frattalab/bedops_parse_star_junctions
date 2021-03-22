@@ -13,7 +13,7 @@
 # bam_suffix = ".csv"
 # sj_suffix = "_normalized_annotated.csv"
 ####cell lines
-a top level folder where the bams reside
+#a top level folder where the bams reside
 project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
 out_spot = "parsed_splice_junctions_cellines/"
 bam_spot = "all_bams_kds_linked/"
