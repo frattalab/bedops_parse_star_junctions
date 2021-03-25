@@ -1,5 +1,6 @@
 import shutil
 import argparse
+import glob
 
 
 def fix_the_file(filename, folder):
