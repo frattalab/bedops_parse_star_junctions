@@ -42,4 +42,4 @@ if __name__ == '__main__':
     fixy_files = glob.glob(folder + grep)
 
     for f in fixy_files:
-        fix_the_file(f)
+        fix_the_file(f, folder)
