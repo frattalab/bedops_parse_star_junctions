@@ -1,11 +1,11 @@
 # import os
 # ####Folders and all the other stuff
 # ####humans
-# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-# out_spot = "parsed_splice_junctions/"
-# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-# bam_suffix = "SJ.out.tab"
-# sj_suffix = "SJ.out.tab"
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+out_spot = "parsed_splice_junctions/"
+bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
+bam_suffix = "SJ.out.tab"
+sj_suffix = "SJ.out.tab"
 # ####humans - ROSMAP
 # project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
 # out_spot = "ROSMAP_parsed/"
@@ -13,11 +13,11 @@
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
 # ####humans - Blood
-project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
-out_spot = "junctions_parsed/"
-bam_spot = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/snake_run/STAR_aligned/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
+# project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
+# out_spot = "junctions_parsed/"
+# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/snake_run/STAR_aligned/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
 # ####humans - as PSIll -
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
 # out_spot = "normalized_annotated/beds/"
@@ -40,9 +40,9 @@ sj_suffix = "SJ.out.tab"
 # sj_suffix = "_normalized_annotated.csv"
 # ####Which bed file, and what you want to name it
 
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/with_new_cort_any_cryptics.bed"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cryptics.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"
-final_output_name = "with_new_cryptics_rosmap"
+final_output_name = "new_analysis_cryptics_count"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
