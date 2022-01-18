@@ -40,12 +40,12 @@ sj_suffix = "SJ.out.tab"
 # sj_suffix = "_normalized_annotated.csv"
 # ####Which bed file, and what you want to name it
 
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/astrocyte_cryptics.bed"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13a_new_cryptics.junctions.bed"
 
 #bed_file = "/SAN/vyplab/alb_projects/data/tdp_glia/majiq/delta_psi_voila_tsv/ControlNon-TDPKDnon_annotated.junctions.bed"
 #ed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cryptics.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"
-final_output_name = "cryptics_in_astrocyte_kd_NYGC"
+final_output_name = "new_unc13a_cryptic_nygc.bed"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
