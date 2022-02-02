@@ -7,17 +7,17 @@
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
 # ####humans - ROSMAP
-# project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
-# out_spot = "ROSMAP_parsed/"
-# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
-# bam_suffix = "SJ.out.tab"
-# sj_suffix = "SJ.out.tab"
-# ####humans - Blood
-project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
-out_spot = "junctions_parsed/"
-bam_spot = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/snake_run/STAR_aligned/"
+project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
+out_spot = "ROSMAP_parsed/"
+bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
 bam_suffix = "SJ.out.tab"
 sj_suffix = "SJ.out.tab"
+# ####humans - Blood
+# project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
+# out_spot = "junctions_parsed/"
+# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/snake_run/STAR_aligned/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
 # ####humans - as PSIll -
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
 # out_spot = "normalized_annotated/beds/"
@@ -45,7 +45,7 @@ bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_crypti
 #bed_file = "/SAN/vyplab/alb_projects/data/tdp_glia/majiq/delta_psi_voila_tsv/ControlNon-TDPKDnon_annotated.junctions.bed"
 #ed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cryptics.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"
-final_output_name = "blood_any_cryptics.bed"
+final_output_name = "rosmap_any_cryptics.bed"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
