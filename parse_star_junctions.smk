@@ -7,17 +7,17 @@
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
 # ####humans - ROSMAP
-# project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
-# out_spot = "ROSMAP_parsed/"
-# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
-# bam_suffix = "SJ.out.tab"
-# sj_suffix = "SJ.out.tab"
-# ####humans - Blood
-project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
-out_spot = "junctions_parsed/"
-bam_spot = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/snake_run/STAR_aligned/"
+project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
+out_spot = "ROSMAP_parsed/"
+bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
 bam_suffix = "SJ.out.tab"
 sj_suffix = "SJ.out.tab"
+# ####humans - Blood
+# project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
+# out_spot = "junctions_parsed/"
+# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/snake_run/STAR_aligned/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
 # ####humans - as PSIll -
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
 # out_spot = "normalized_annotated/beds/"
