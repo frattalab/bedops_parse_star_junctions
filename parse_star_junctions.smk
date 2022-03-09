@@ -34,7 +34,7 @@ sj_suffix = ".SJ.out.tab"
 ####Liu Facs - Eddie Lee
 #a top level folder where the bams reside
 project_dir = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/"
-out_spot = "searched_splice_junctions/"
+out_spot = "splicejunctions/"
 bam_spot = "STAR_aligned/"
 bam_suffix = ".Aligned.sorted.out.bam"
 sj_suffix = ".SJ.out.tab"
