@@ -1,17 +1,17 @@
 # import os
 # ####Folders and all the other stuff
 # ####humans
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-out_spot = "parsed_splice_junctions/"
-bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
-# ####humans - ROSMAP
-# project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
-# out_spot = "ROSMAP_parsed/"
-# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+# out_spot = "parsed_splice_junctions/"
+# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
+# ####humans - ROSMAP
+project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
+out_spot = "ROSMAP_parsed/"
+bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
+bam_suffix = "SJ.out.tab"
+sj_suffix = "SJ.out.tab"
 # ####humans - Blood
 # project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
 # out_spot = "junctions_parsed/"
@@ -51,7 +51,7 @@ bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/new_crypti
 #bed_file = "/SAN/vyplab/alb_projects/data/tdp_glia/majiq/delta_psi_voila_tsv/ControlNon-TDPKDnon_annotated.junctions.bed"
 #ed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cryptics.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"
-final_output_name = "new_unc13a_cryptic.bed"
+final_output_name = "rosmap_cryptics_new_pipeline"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
