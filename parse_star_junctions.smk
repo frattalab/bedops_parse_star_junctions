@@ -1,11 +1,11 @@
 # import os
 # ####Folders and all the other stuff
 # ####humans
-# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-# out_spot = "parsed_splice_junctions/"
-# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-# bam_suffix = "SJ.out.tab"
-# sj_suffix = "SJ.out.tab"
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+out_spot = "parsed_splice_junctions/"
+bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
+bam_suffix = "SJ.out.tab"
+sj_suffix = "SJ.out.tab"
 # ####humans - ROSMAP
 # project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
 # out_spot = "ROSMAP_parsed/"
@@ -26,18 +26,18 @@
 # sj_suffix = "_normalized_annotated.csv"
 ####cell lines
 #a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-out_spot = "parsed_splice_junctions_cellines/"
-bam_spot = "all_bams_kds_linked/"
-bam_suffix = ".Aligned.sorted.out.bam"
-sj_suffix = ".SJ.out.tab"
-####Liu Facs - Eddie Lee
-#a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/"
-out_spot = "splicejunctions/"
-bam_spot = "STAR_aligned/"
-bam_suffix = ".Aligned.sorted.out.bam"
-sj_suffix = ".SJ.out.tab"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+# out_spot = "parsed_splice_junctions_cellines/"
+# bam_spot = "all_bams_kds_linked/"
+# bam_suffix = ".Aligned.sorted.out.bam"
+# sj_suffix = ".SJ.out.tab"
+# ####Liu Facs - Eddie Lee
+# #a top level folder where the bams reside
+# project_dir = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/"
+# out_spot = "splicejunctions/"
+# bam_spot = "STAR_aligned/"
+# bam_suffix = ".Aligned.sorted.out.bam"
+# sj_suffix = ".SJ.out.tab"
 ####cell lines - as PSI
 # a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/sj_files_only/"
@@ -47,7 +47,7 @@ sj_suffix = ".SJ.out.tab"
 # sj_suffix = "_normalized_annotated.csv"
 # ####Which bed file, and what you want to name it
 
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/unc13a_new_cryptics.junctions.bed"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/new_cryptics.junctions.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/tdp_glia/majiq/delta_psi_voila_tsv/ControlNon-TDPKDnon_annotated.junctions.bed"
 #ed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cryptics.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"

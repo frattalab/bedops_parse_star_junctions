@@ -1,16 +1,22 @@
+localrules: all_normalize_annotate, normalize_annotate
 import os
 ####GTF
-gtf = "/SAN/vyplab/vyplab_reference_genomes/annotation/human/GRCh38/gencode.v34.annotation.gtf"
+gtf = "/Users/annaleigh/Downloads/gencode.v34.annotation.gtf"
 
 ####Folders and all the other stuff
 ####humans END in backslash
 out_spot = "normalized_annotated/"
-input_sj_folder = "/SAN/vyplab/first_weeks/TDP_CHX_CLONES_GLIA/STAR_aligned/"
+input_sj_folder = "/Users/annaleigh/Documents/GitHub/tdp_43_psi_rankings/sj_tabs/allsjtabsonly/"
 sj_suffix = ".SJ.out.tab"
 ####cell lines
 # input_sj_folder = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/sj_files_only/"
 
 
+
+# print(bam_dir)
+SAMPLES = [f.replace(sj_suffix, "") for f in os.listdir(input_sj_folder) if f.endswith(sj_suffix)]
+
+print(SAMPLES)
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 
