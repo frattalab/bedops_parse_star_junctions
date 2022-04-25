@@ -47,11 +47,11 @@ sj_suffix = "_normalized_annotated.csv"
 # sj_suffix = "_normalized_annotated.csv"
 # ####Which bed file, and what you want to name it
 
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/new_ipsc_cort_changing_sig.junctions.bed"
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/darkcryptome.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/tdp_glia/majiq/delta_psi_voila_tsv/ControlNon-TDPKDnon_annotated.junctions.bed"
 #ed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cryptics.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"
-final_output_name = "nygc_new_ipsc_cort_changing_sig"
+final_output_name = "dark_cryptome"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
