@@ -1,17 +1,17 @@
 # import os
 # ####Folders and all the other stuff
 # ####humans
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
-out_spot = "parsed_splice_junctions/"
-bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
-# ####humans - ROSMAP
-# project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
-# out_spot = "ROSMAP_parsed/"
-# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+# out_spot = "parsed_splice_junctions/"
+# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
+# ####humans - ROSMAP
+project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
+out_spot = "ROSMAP_parsed/"
+bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
+bam_suffix = "SJ.out.tab"
+sj_suffix = "SJ.out.tab"
 # ####humans - Blood
 # project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
 # out_spot = "junctions_parsed/"
