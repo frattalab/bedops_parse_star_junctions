@@ -47,7 +47,8 @@ sj_suffix = "SJ.out.tab"
 # sj_suffix = "_normalized_annotated.csv"
 # ####Which bed file, and what you want to name it
 
-bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/ntrk2_5utr.bed"
+
+bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/elavl3.changing_sig.junctions.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/tdp_glia/majiq/delta_psi_voila_tsv/ControlNon-TDPKDnon_annotated.junctions.bed"
 #ed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cryptics.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"
