@@ -7,11 +7,11 @@
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
 # ####humans - ROSMAP
-# project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
-# out_spot = "ROSMAP_parsed/"
-# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
-# bam_suffix = "SJ.out.tab"
-# sj_suffix = "SJ.out.tab"
+project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
+out_spot = "ROSMAP_parsed/"
+bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
+bam_suffix = "SJ.out.tab"
+sj_suffix = "SJ.out.tab"
 # ####humans - Blood
 # project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
 # out_spot = "junctions_parsed/"
@@ -33,11 +33,11 @@
 # sj_suffix = ".SJ.out.tab"
 ###cell lines hnrnpc
 #a top level folder where the bams reside
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/hnrnpc_lines/"
-out_spot = "parsed_splice_junctions_hnrnpc/"
-bam_spot = "oritabs/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/hnrnpc_lines/"
+# out_spot = "parsed_splice_junctions_hnrnpc/"
+# bam_spot = "oritabs/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
 # ####Liu Facs - Eddie Lee
 # #a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/"
