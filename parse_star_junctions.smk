@@ -35,7 +35,7 @@
 #a top level folder where the bams reside
 project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/hnrnpc_lines/"
 out_spot = "parsed_splice_junctions_hnrnpc/"
-bam_spot = "all_bams_kds_linked/"
+bam_spot = "oritabs/"
 bam_suffix = "SJ.out.tab"
 sj_suffix = "SJ.out.tab"
 # ####Liu Facs - Eddie Lee
