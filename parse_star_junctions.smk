@@ -7,11 +7,11 @@
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
 # ####humans - ROSMAP
-project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
-out_spot = "ROSMAP_parsed/"
-bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
+# project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
+# out_spot = "ROSMAP_parsed/"
+# bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
 # ####humans - Blood
 # project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
 # out_spot = "junctions_parsed/"
@@ -19,17 +19,17 @@ sj_suffix = "SJ.out.tab"
 # bam_suffix = "SJ.out.tab"
 # sj_suffix = "SJ.out.tab"
 # ####humans - as PSI -
-# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
-# out_spot = "normalized_annotated/beds/"
-# bam_spot = "normalized_annotated/"
-# bam_suffix = ".csv"
-# sj_suffix = "_normalized_annotated.csv"
+project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_all_samples_renamed_sj_tabs/"
+out_spot = "normalized_annotated/beds/"
+bam_spot = "normalized_annotated/"
+bam_suffix = ".csv"
+sj_suffix = "_normalized_annotated.csv"
 # ####humans - hippocamps -
-project_dir = "/SAN/vyplab/first_weeks/hippocampus_ad/"
-out_spot = "normalized_annotated_sj_counts/"
-bam_spot = "STAR_aligned/"
-bam_suffix = ".Aligned.sorted.out.bam"
-sj_suffix = ".SJ.out.tab"
+# project_dir = "/SAN/vyplab/first_weeks/hippocampus_ad/"
+# out_spot = "normalized_annotated_sj_counts/"
+# bam_spot = "STAR_aligned/"
+# bam_suffix = ".Aligned.sorted.out.bam"
+# sj_suffix = ".SJ.out.tab"
 ####cell lines
 #a top level folder where the bams reside
 # project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
@@ -65,7 +65,7 @@ bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/most_recen
 #bed_file = "/SAN/vyplab/alb_projects/data/tdp_glia/majiq/delta_psi_voila_tsv/ControlNon-TDPKDnon_annotated.junctions.bed"
 #ed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/cryptics.bed"
 #bed_file = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/beds/any_cryptics.bed"
-final_output_name = "most_recent_collection_tdp_cryptics_hippocampus_counts"
+final_output_name = "most_recent_collection_with_sahba_nygc_psi"
 
 #### Where do bedtools and bedops live on your system? ####
 bedops_path = "/SAN/vyplab/alb_projects/tools/bedops/bin/"
