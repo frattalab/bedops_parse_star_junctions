@@ -6,8 +6,8 @@ gtf = "/SAN/vyplab/vyplab_reference_genomes/annotation/human/GRCh38/gencode.v40.
 ####Folders and all the other stuff
 ####humans END in backslash
 
-out_spot = "/SAN/vyplab/first_weeks/TDP_curves_UPF1_GLIA/NMD_UPF1_dasper_sj_psi_normalized/"
-input_sj_folder = "/SAN/vyplab/first_weeks/TDP_curves_UPF1_GLIA/NMD_UPF1/STAR_aligned/"
+out_spot = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/dasper_sj_psi_normalized/"
+input_sj_folder = "/SAN/vyplab/alb_projects/data/liu_facs_neurons/STAR_aligned/"
 sj_suffix = ".SJ.out.tab"
 ####cell lines
 # input_sj_folder = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/sj_files_only/"
