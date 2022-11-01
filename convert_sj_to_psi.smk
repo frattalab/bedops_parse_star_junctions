@@ -7,7 +7,7 @@ gtf = "/SAN/vyplab/vyplab_reference_genomes/annotation/human/GRCh38/gencode.v40.
 ####humans END in backslash
 
 out_spot = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/dasper_sj_psi_normalized/"
-input_sj_folder = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/allsjtabsonly"
+input_sj_folder = "/SAN/vyplab/alb_projects/data/tdp_ko_collection/allsjtabsonly/"
 sj_suffix = ".SJ.out.tab"
 ####cell lines
 # input_sj_folder = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/all_bams_kds_linked/sj_files_only/"
