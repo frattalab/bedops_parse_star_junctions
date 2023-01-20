@@ -1,9 +1,15 @@
 # import os
 # ####Folders and all the other stuff
 # ####humans
-project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+# project_dir = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/"
+# out_spot = "parsed_splice_junctions/"
+# bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
+# bam_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"
+# ####LCM https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6215775/
+project_dir = "/SAN/vyplab/alb_projects/data/yeo_laser/splicejunctions/"
 out_spot = "parsed_splice_junctions/"
-bam_spot = "/SAN/vyplab/alb_projects/data/sinai_splice_junctions/sinai_als_sj/"
+bam_spot = "/SAN/vyplab/alb_projects/data/yeo_laser/splicejunctions/"
 bam_suffix = "SJ.out.tab"
 sj_suffix = "SJ.out.tab"
 # ####humans - ROSMAP
