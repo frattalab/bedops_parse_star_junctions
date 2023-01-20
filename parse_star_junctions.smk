@@ -10,14 +10,14 @@
 project_dir = "/SAN/vyplab/alb_projects/data/yeo_laser/splicejunctions/"
 out_spot = "parsed_splice_junctions/"
 bam_spot = "/SAN/vyplab/alb_projects/data/yeo_laser/splicejunctions/"
-bam_suffix = "SJ.out.tab"
-sj_suffix = "SJ.out.tab"
+bam_suffix = ".bed"
+sj_suffix = ".bed"
 # ####humans - ROSMAP
 # project_dir = "/SAN/vyplab/NYGC_ALSFTD/"
 # out_spot = "ROSMAP_parsed/"
 # bam_spot = "/SAN/vyplab/NYGC_ALSFTD/ROSMAP/"
 # bam_suffix = "SJ.out.tab"
-# sj_suffix = "SJ.out.tab"
+# sj_suffix = "SJ.out.tab"ls 
 # ####humans - Blood
 # project_dir = "/SAN/vyplab/NYGC_ALSFTD/mayo_blood_rna/"
 # out_spot = "junctions_parsed/"
