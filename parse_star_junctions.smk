@@ -8,7 +8,7 @@
 # sj_suffix = "SJ.out.tab"
 # ####LCM https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6215775/
 project_dir = "/SAN/vyplab/alb_projects/data/yeo_laser/"
-out_spot = "parsed_splice_junctions/"
+out_spot = "splicejunctions/"
 bam_spot = "/Users/annaleigh/cluster/alb_projects/data/yeo_laser/linked_bams/"
 bam_suffix = "_unique_rg_fixed.bam"
 sj_suffix = ".SJ.out.tab"
