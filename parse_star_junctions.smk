@@ -81,7 +81,7 @@ bedtools_path = "/SAN/vyplab/alb_projects/tools/bedtools"
 
 output_dir = os.path.join(project_dir,out_spot)
 bam_dir = os.path.join(project_dir,bam_spot)
-# print(bam_dir)
+print(bam_dir)
 SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
 
 print(output_dir)
