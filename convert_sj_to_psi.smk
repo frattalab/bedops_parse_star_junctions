@@ -1,3 +1,4 @@
+localrules: all_normalize_annotate, normalize_annotate
 import os
 configfile: "config.yaml"
 
@@ -8,6 +9,11 @@ sj_suffix = config["pt2_sj_suffix"]
 
 
 
+
+# print(bam_dir)
+SAMPLES = [f.replace(sj_suffix, "") for f in os.listdir(input_sj_folder) if f.endswith(sj_suffix)]
+
+print(SAMPLES)
 
 # =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 
@@ -20,7 +26,8 @@ def get_single_psi_parsed_files_dasper(SAMPLES):
 
     return(parsed_psi_files)
 
-output_dir = os.path.join(input_sj_folder,out_spot)
+output_dir = out_spot
+
 # print(bam_dir)
 SAMPLES, = glob_wildcards(input_sj_folder + "{sample}" + sj_suffix)
 

@@ -33,15 +33,16 @@ output_the_psi_files = function(sample_name,
 
   normed = as.data.table(SummarizedExperiment::assays(junctions_filtered)[["norm"]])
   normed$index = 1:nrow(normed)
+  raw = as.data.table(SummarizedExperiment::assays(junctions_filtered)[["raw"]])
+  raw$index = 1:nrow(raw)
 
 
-  annotated_clustered_normed = annotated_clustered %>% left_join(normed,by = "index")
-
-  setnames(annotated_clustered_normed,"count_1", sample_name)
-
-  annotated_clustered_normed = annotated_clustered %>% left_join(normed,by = "index")
-
-  setnames(annotated_clustered_normed,"count_1", sample_name)
+  annotated_clustered_normed = annotated_clustered %>% 
+      left_join(normed,by = "index") %>% 
+      dplyr::rename(psi = count_1) %>% 
+      left_join(raw,by = 'index') %>% 
+      dplyr::rename(raw_count = count_1) %>% 
+      mutate(sample_name = sample_name)
 
 
   fwrite(annotated_clustered_normed,output_filepath_normed)
