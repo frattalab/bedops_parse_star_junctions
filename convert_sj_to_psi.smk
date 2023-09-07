@@ -2,20 +2,6 @@ localrules: all_normalize_annotate, normalize_annotate
 import os
 configfile: "config.yaml"
 
-gtf = config["gtf"]
-input_sj_folder = config["input_sj_folder"]
-out_spot = config["out_spot"]
-sj_suffix = config["pt2_sj_suffix"]
-
-
-
-
-# print(bam_dir)
-SAMPLES = [f.replace(sj_suffix, "") for f in os.listdir(input_sj_folder) if f.endswith(sj_suffix)]
-
-print(SAMPLES)
-
-# =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
 
 def get_single_psi_parsed_files_dasper(SAMPLES):
     """
@@ -26,28 +12,28 @@ def get_single_psi_parsed_files_dasper(SAMPLES):
 
     return(parsed_psi_files)
 
-output_dir = out_spot
 
-# print(bam_dir)
-SAMPLES, = glob_wildcards(input_sj_folder + "{sample}" + sj_suffix)
+gtf = config["gtf"]
+input_sj_folder = config["input_sj_folder"]
+output_dir = config["out_spot"]
+sj_suffix = config["pt2_sj_suffix"]
+
+# empty comma unpacks the tuple (so get sample wildcards as a list)
+SAMPLES, = glob_wildcards(os.path.join(input_sj_folder, "{sample}" + sj_suffix))
+
 
 rule all_normalize_annotate:
     input:
-        expand(output_dir + "{sample}" + "_normalized_annotated.csv", sample = SAMPLES),
-        expand(output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed", sample = SAMPLES),
-        output_dir  + "beds/beds_dones"
-
-        # os.path.join(output_dir, "normalized_annotated_combined_samples.csv"),
-        # os.path.join(output_dir, "normalized_annotated_combined_samples.csv")
-
-
+        expand(os.path.join(output_dir, "{sample}" + "_normalized_annotated.csv"), sample = SAMPLES),
+        expand(os.path.join(output_dir, "beds", "{sample}" + "_normalized_annotated.bed"), sample = SAMPLES),
+        os.path.join(output_dir, "beds", "beds_dones")
 
 rule normalize_annotate:
     input:
-        input_sj_folder + "{sample}" + sj_suffix
+        os.path.join(input_sj_folder, "{sample}" + sj_suffix)
 
     output:
-        output_dir + "{sample}" + "_normalized_annotated.csv"
+        os.path.join(output_dir, "{sample}" + "_normalized_annotated.csv")
 
     params:
         gtf = gtf,
@@ -70,27 +56,28 @@ rule normalize_annotate:
 
 rule to_bed:
     input:
-        output_dir + "{sample}" + "_normalized_annotated.csv"
+        rules.normalize_annotate.output
 
     output:
-        output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed"
+        os.path.join(output_dir, "beds", "{sample}" + "_normalized_annotated.bed")
 
     group: "to_bed"
 
     params:
-        bed_dir = output_dir + "beds/"
+        bed_dir = os.path.join(output_dir, "beds", "")
 
     shell:
         """
         mkdir -p {params.bed_dir}
         python3 splice_junction_psi_tobed.py -i {input} -o {output}
         """
+
 rule dummy_agg_to_bed:
     input:
-        expand(output_dir  + "beds/" + "{sample}" + "_normalized_annotated.bed",sample=SAMPLES)
+        expand(os.path.join(output_dir, "beds", "{sample}" + "_normalized_annotated.bed"), sample=SAMPLES)
 
     output:
-        output_dir  + "beds/beds_dones"
+        os.path.join(output_dir, "beds", "beds_dones")
 
     group: "to_bed"
 

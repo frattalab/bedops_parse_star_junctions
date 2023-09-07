@@ -1,7 +1,7 @@
 import os
 configfile: "config.yaml"
 
-# =-------DON"T TOUCH ANYTHING PAST THIS POINT ----------------------------
+
 project_dir = config["project_dir"]
 out_spot = config["out_spot"]
 bam_spot = config["bam_spot"]
@@ -10,47 +10,36 @@ sj_suffix = config["pt1_sj_suffix"]
 bed_file = config["bed_file"]
 final_output_name = config["final_output_name"]
 
-# bedtools_path = config["bedtools_path"]
-# bedops_path = config["bedops_path"]
-
-
-output_dir = os.path.join(project_dir,out_spot)
+output_dir = os.path.join(project_dir, out_spot)
 
 if os.path.isabs(bam_spot):
-
-    if bam_spot.endswith('/'):
-        bam_dir = bam_spot
-    else:
-        bam_dir = bam_spot + "/"
-
+    bam_dir = bam_spot
 else:
+    # expect to find bam_dir under provided project dir
     bam_dir = os.path.join(project_dir, bam_spot, '')
 
 
-# bam_dir = os.path.join(project_dir,bam_spot)
-# print(bam_dir)
-SAMPLES, = glob_wildcards(bam_dir + "{sample}" + bam_suffix)
+# empty comma unpacks the tuple (so get sample wildcards as a list)
+SAMPLES, = glob_wildcards(os.path.join(bam_dir, "{sample}" + bam_suffix))
 
 print(output_dir)
-print("Number of Input Samples")
-print(len(SAMPLES))
+print(f"Number of Input Samples {len(SAMPLES)}")
 
 
 localrules: all_output, copy_config
 
 rule all_output:
     input:
-        output_dir + "bedops_parse_star_junctions_config.yaml",
-        expand(output_dir + "{sample}.sorted.bed", sample = SAMPLES),
-        output_dir + final_output_name + "aggregated.clean.annotated.bed"
+        expand(os.path.join(output_dir, "{sample}.sorted.bed"), sample = SAMPLES),
+        os.path.join(output_dir, final_output_name + ".aggregated.clean.annotated.bed")
 
 
 rule sj_to_bed:
     input:
-        bam_dir + "{sample}" + sj_suffix
+        os.path.join(bam_dir, "{sample}" + sj_suffix)
 
     output:
-        temp(output_dir + "{sample}.bed")
+        temp(os.path.join(output_dir, "{sample}.bed"))
 
     group:
         "prepare_sample_beds"
@@ -63,10 +52,10 @@ rule sj_to_bed:
 
 rule sort_beds:
     input:
-        output_dir + "{sample}.bed"
+        rules.sj_to_bed.output
 
     output:
-        output_dir + "{sample}.sorted.bed"
+        os.path.join(output_dir, "{sample}.sorted.bed")
 
     conda:
         "bedops_parse_star.yaml"
@@ -81,13 +70,10 @@ rule sort_beds:
 
 rule call_element:
     input:
-        output_dir + "{sample}.sorted.bed"
+        rules.sort_beds.output
 
     output:
-        temp(output_dir + final_output_name + ".{sample}.bedops.element")
-
-    #params:
-        #bedtools = bedtools_path
+        temp(os.path.join(output_dir, final_output_name + ".{sample}.bedops.element"))
 
     conda:
         "bedops_parse_star.yaml"
@@ -104,13 +90,13 @@ rule call_element:
 # an aggregation over all produced clusters
 rule aggregate:
     input:
-        expand(output_dir + final_output_name + ".{sample}.bedops.element", sample = SAMPLES)
+        expand(os.path.join(output_dir, final_output_name + ".{sample}.bedops.element"), sample = SAMPLES)
 
     output:
-        output_dir + final_output_name + "aggregated.bed"
+        os.path.join(output_dir, final_output_name + ".aggregated.bed")
 
     params:
-        cat_call = output_dir + final_output_name + "*.bedops.element"
+        cat_call = os.path.join(output_dir, final_output_name + "*.bedops.element")
 
     group:
         "get_aggregate_bed"
@@ -123,10 +109,10 @@ rule aggregate:
 
 rule clean_aggregate:
     input:
-        output_dir + final_output_name + "aggregated.bed"
+        rules.aggregate.output
 
     output:
-        temp(output_dir + final_output_name + "aggregated.clean.bed")
+        temp(os.path.join(output_dir, final_output_name + ".aggregated.clean.bed"))
 
     conda:
         "bedops_parse_star.yaml"
@@ -138,12 +124,13 @@ rule clean_aggregate:
         """
         bedtools intersect -f 1 -wa -r -a {input} -b {bed_file} > {output}
         """
+
 rule annotate_clean:
     input:
-        output_dir + final_output_name + "aggregated.clean.bed"
+        rules.clean_aggregate.output
 
     output:
-        output_dir + final_output_name + "aggregated.clean.annotated.bed"
+        os.path.join(output_dir, final_output_name + ".aggregated.clean.annotated.bed")
 
     conda:
         "bedops_parse_star.yaml"
@@ -158,15 +145,3 @@ rule annotate_clean:
         rm {output}.tmp
         """
 
-
-rule copy_config:
-    input:
-        output_dir + final_output_name + "aggregated.clean.annotated.bed"
-
-    output:
-        output_dir + "bedops_parse_star_junctions_config.yaml"
-
-    shell:
-        """
-        cp config.yaml {output}
-        """
