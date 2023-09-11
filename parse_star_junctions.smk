@@ -20,7 +20,8 @@ else:
 
 
 # empty comma unpacks the tuple (so get sample wildcards as a list)
-SAMPLES, = glob_wildcards(os.path.join(bam_dir, "{sample}" + bam_suffix))
+# SAMPLES, = glob_wildcards(os.path.join(bam_dir, "{sample}" + bam_suffix))
+SAMPLES, = glob_wildcards(os.path.join(bam_dir, "{sample}" + sj_suffix))
 
 print(output_dir)
 print(f"Number of Input Samples {len(SAMPLES)}")
