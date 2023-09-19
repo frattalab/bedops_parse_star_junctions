@@ -15,8 +15,11 @@ def get_single_psi_parsed_files_dasper(SAMPLES):
 
 gtf = config["gtf"]
 input_sj_folder = config["input_sj_folder"]
-output_dir = config["out_spot"]
+project_dir = config["project_dir"]
+out_spot = config["pt2_out_spot"]
 sj_suffix = config["pt2_sj_suffix"]
+
+output_dir = os.path.join(project_dir, out_spot)
 
 # empty comma unpacks the tuple (so get sample wildcards as a list)
 SAMPLES, = glob_wildcards(os.path.join(input_sj_folder, "{sample}" + sj_suffix))
